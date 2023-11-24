@@ -57,18 +57,20 @@ which corresponds to a minimum contrast in relative luminance of
     '(
 ;;; Basic values
 
-      (bg-main          "#0d0e1c")
-      (bg-dim           "#1d2235")
+      (bg-main          "#172021")
+      (bg-dim           "#192627")
       (fg-main          "#ffffff")
       (fg-dim           "#989898")
       (fg-alt           "#c6daff")
-      (bg-active        "#4a4f69")
-      (bg-inactive      "#2b3045")
-      (border           "#61647a")
+      (bg-info          "#143A29")
+      (bg-err           "#572B2B")
+      (bg-active        "#1d282a")
+      (bg-inactive      "#1f292b")
+      (border           "#376751")
 
 ;;; Common accent foregrounds
 
-      (red             "#ff5f59")
+      (red             "#ff443d")
       (red-warmer      "#ff6b55")
       (red-cooler      "#ff7f9f")
       (red-faint       "#ff9f80")
@@ -149,21 +151,22 @@ which corresponds to a minimum contrast in relative luminance of
 
 ;;; Special purpose
 
-      (bg-completion       "#483d8a")
-      (bg-hover            "#45605e")
-      (bg-hover-secondary  "#654a39")
-      (bg-hl-line          "#303a6f")
-      (bg-region           "#555a66")
-      (fg-region           "#ffffff")
+      (bg-completion       "#2f4144")
+      (bg-hover              bg-main)
+      (bg-hover-secondary  "#aa759f")
+      (bg-hl-line      bg-completion)
+      (bg-region       bg-completion)
+      (fg-region             fg-main)
+      (fg-comment          "#486f7a")
 
       (bg-char-0 "#0050af")
       (bg-char-1 "#7f1f7f")
       (bg-char-2 "#625a00")
 
-      (bg-mode-line-active        "#484d67")
-      (fg-mode-line-active        "#ffffff")
+      (bg-mode-line-active        "#131B1C")
+      (fg-mode-line-active        fg-main)
       (border-mode-line-active    "#979797")
-      (bg-mode-line-inactive      "#292d48")
+      (bg-mode-line-inactive      "#344138")
       (fg-mode-line-inactive      "#969696")
       (border-mode-line-inactive  "#606270")
 
@@ -171,9 +174,9 @@ which corresponds to a minimum contrast in relative luminance of
       (modeline-warning "#dfcf43")
       (modeline-info    "#9fefff")
 
-      (bg-tab-bar      "#2c3045")
-      (bg-tab-current  "#0d0e1c")
-      (bg-tab-other    "#4a4f6a")
+      (bg-tab-bar         bg-main)
+      (bg-tab-current     bg-main)
+      (bg-tab-other       bg-main)
 
 ;;; Diffs
 
@@ -217,13 +220,13 @@ which corresponds to a minimum contrast in relative luminance of
 ;;;; General mappings
 
       (fringe bg-dim)
-      (cursor magenta-warmer)
+      (cursor maroon)
 
       (keybind blue-cooler)
       (name magenta)
       (identifier yellow-faint)
 
-      (err red)
+      (err red-intense)
       (warning yellow-warmer)
       (info cyan-cooler)
 
@@ -241,7 +244,7 @@ which corresponds to a minimum contrast in relative luminance of
 ;;;; Code mappings
 
       (builtin magenta-warmer)
-      (comment red-faint)
+      (comment fg-comment)
       (constant blue-cooler)
       (docstring cyan-faint)
       (docmarkup magenta-faint)
@@ -296,8 +299,8 @@ which corresponds to a minimum contrast in relative luminance of
 
       (fg-line-number-inactive fg-dim)
       (fg-line-number-active fg-main)
-      (bg-line-number-inactive bg-dim)
-      (bg-line-number-active bg-active)
+      (bg-line-number-inactive bg-main)
+      (bg-line-number-active bg-dim)
 
 ;;;; Link mappings
 
@@ -335,7 +338,7 @@ which corresponds to a minimum contrast in relative luminance of
 
 ;;;; Prompt mappings
 
-      (fg-prompt cyan-cooler)
+      (fg-prompt fg-main)
       (bg-prompt unspecified)
       (bg-space-err bg-red-intense)
 
@@ -343,7 +346,7 @@ which corresponds to a minimum contrast in relative luminance of
 
       (prose-block fg-dim)
       (prose-code cyan-cooler)
-      (prose-done green)
+      (prose-done green-intense)
       (prose-macro magenta-cooler)
       (prose-metadata fg-dim)
       (prose-metadata-value fg-alt)
@@ -413,15 +416,15 @@ which corresponds to a minimum contrast in relative luminance of
 
 ;;;; Heading mappings
 
-      (fg-heading-0 cyan-cooler)
-      (fg-heading-1 fg-main)
-      (fg-heading-2 yellow-faint)
-      (fg-heading-3 blue-faint)
-      (fg-heading-4 magenta)
-      (fg-heading-5 green-faint)
-      (fg-heading-6 red-faint)
-      (fg-heading-7 cyan-faint)
-      (fg-heading-8 fg-dim)
+      (fg-heading-0 "#CF74E9")
+      (fg-heading-1 "#51afef")
+      (fg-heading-2 "#CF74E9")
+      (fg-heading-3 "#A093FF")
+      (fg-heading-4 "#7cc3f3")
+      (fg-heading-5 "#d499e5")
+      (fg-heading-6 "#a8d7f7")
+      (fg-heading-7 "#e2bbee")
+      (fg-heading-8 "#dceffb")
 
       (bg-heading-0 unspecified)
       (bg-heading-1 unspecified)

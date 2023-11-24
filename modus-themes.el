@@ -37,7 +37,9 @@
 
 
 
-(eval-when-compile (require 'subr-x))
+(eval-when-compile
+  (require 'cl-lib)
+  (require 'subr-x))
 
 (defgroup modus-themes ()
   "User options for the Modus themes.
@@ -612,46 +614,6 @@ and related user options."
 (make-obsolete-variable 'modus-themes-org-agenda nil "4.0.0")
 (make-obsolete-variable 'modus-themes-fringes nil "4.0.0")
 (make-obsolete-variable 'modus-themes-lang-checkers nil "4.0.0")
-
-(defcustom modus-themes-org-blocks nil
-  "Set the overall style of Org code blocks, quotes, and the like.
-
-Nil (the default) means that the block has no background of its
-own: it uses the one that applies to the rest of the buffer.  In
-this case, the delimiter lines have a gray color for their text,
-making them look exactly like all other Org properties.
-
-Option `gray-background' applies a subtle gray background to the
-block's contents.  It also affects the begin and end lines of the
-block as they get another shade of gray as their background,
-which differentiates them from the contents of the block.  All
-background colors extend to the edge of the window, giving the
-area a rectangular, \"blocky\" presentation.  If the begin/end
-lines do not extend in this way, check the value of the Org user
-option `org-fontify-whole-block-delimiter-line'.
-
-Option `tinted-background' uses a colored background for the
-contents of the block.  The exact color value will depend on the
-programming language and is controlled by the variable
-`org-src-block-faces' (refer to the theme's source code for the
-current association list).  For this to take effect, the Org
-buffer needs to be restarted with `org-mode-restart'.
-
-Code blocks use their major mode's fontification (syntax
-highlighting) only when the variable `org-src-fontify-natively'
-is non-nil.  While quote/verse blocks require setting
-`org-fontify-quote-and-verse-blocks' to a non-nil value."
-  :group 'modus-themes
-  :package-version '(modus-themes . "4.0.0")
-  :version "30.1"
-  :type '(choice
-          (const :format "[%v] %t\n" :tag "No Org block background (default)" nil)
-          (const :format "[%v] %t\n" :tag "Subtle gray block background" gray-background)
-          (const :format "[%v] %t\n" :tag "Color-coded background per programming language" tinted-background))
-  :set #'modus-themes--set-option
-  :initialize #'custom-initialize-default
-  :link '(info-link "(modus-themes) Org mode blocks"))
-
 (make-obsolete-variable 'modus-themes-mode-line nil "4.0.0")
 (make-obsolete-variable 'modus-themes-diffs nil "4.0.0")
 
@@ -1160,22 +1122,14 @@ Info node `(modus-themes) Option for palette overrides'.")
 ;;;; Helper functions for theme setup
 
 ;; This is the WCAG formula: https://www.w3.org/TR/WCAG20-TECHS/G18.html
-(defun modus-themes--wcag-contribution (channel weight)
-  "Return the CHANNEL contribution to overall luminance given WEIGHT."
-  (* weight
-     (if (<= channel 0.03928)
-         (/ channel 12.92)
-       (expt (/ (+ channel 0.055) 1.055) 2.4))))
-
 (defun modus-themes-wcag-formula (hex)
   "Get WCAG value of color value HEX.
 The value is defined in hexadecimal RGB notation, such #123456."
-  (let ((channels (color-name-to-rgb hex))
-        (weights '(0.2126 0.7152 0.0722))
-        contribution)
-    (while channels
-      (push (modus-themes--wcag-contribution (pop channels) (pop weights)) contribution))
-    (apply #'+ contribution)))
+  (cl-loop for k in '(0.2126 0.7152 0.0722)
+           for x in (color-name-to-rgb hex)
+           sum (* k (if (<= x 0.03928)
+                        (/ x 12.92)
+                      (expt (/ (+ x 0.055) 1.055) 2.4)))))
 
 ;;;###autoload
 (defun modus-themes-contrast (c1 c2)
@@ -1188,27 +1142,29 @@ C1 and C2 are color values written in hexadecimal RGB."
 (make-obsolete 'modus-themes-color nil "4.0.0")
 (make-obsolete 'modus-themes-color-alts nil "4.0.0")
 
-(defun modus-themes--modus-p (theme)
-  "Return non-nil if THEME name has a modus- prefix."
-  (string-prefix-p "modus-" (symbol-name theme)))
+(declare-function cl-remove-if-not "cl-seq" (cl-pred cl-list &rest cl-keys))
 
 (defun modus-themes--list-enabled-themes ()
   "Return list of `custom-enabled-themes' with modus- prefix."
-  (seq-filter #'modus-themes--modus-p custom-enabled-themes))
-
-(defun modus-themes--load-no-enable (theme)
-  "Load but do not enable THEME if it belongs to `custom-known-themes'."
-  (unless (memq theme custom-known-themes)
-    (load-theme theme :no-confirm :no-enable)))
+  (cl-remove-if-not
+   (lambda (theme)
+     (string-prefix-p "modus-" (symbol-name theme)))
+   custom-enabled-themes))
 
 (defun modus-themes--enable-themes ()
   "Enable the Modus themes."
-  (mapc #'modus-themes--load-no-enable modus-themes-items))
+  (mapc (lambda (theme)
+          (unless (memq theme custom-known-themes)
+            (load-theme theme :no-confirm :no-enable)))
+        modus-themes-items))
 
 (defun modus-themes--list-known-themes ()
   "Return list of `custom-known-themes' with modus- prefix."
   (modus-themes--enable-themes)
-  (seq-filter #'modus-themes--modus-p custom-known-themes))
+  (cl-remove-if-not
+   (lambda (theme)
+     (string-prefix-p "modus-" (symbol-name theme)))
+   custom-known-themes))
 
 (defun modus-themes--current-theme ()
   "Return first enabled Modus theme."
@@ -1490,7 +1446,8 @@ Check PROPERTIES for an alist value that corresponds to
 ALIST-KEY.  If no alist is present, search the PROPERTIES
 list given LIST-PRED, using DEFAULT as a fallback."
   (if-let* ((val (or (alist-get alist-key properties)
-                     (seq-filter (lambda (x) (funcall list-pred x)) properties)
+                     (cl-loop for x in properties
+                              if (funcall list-pred x) return x)
                      default))
             ((listp val)))
       (car val)
@@ -1583,16 +1540,6 @@ Optional OL is the color of an overline."
                       (modus-themes--property-lookup properties 'height #'floatp 'unspecified)
                     'unspecified)
           :weight (or weight 'unspecified))))
-
-(defun modus-themes--org-block (fg bg)
-  "Conditionally set the FG and BG of Org blocks."
-  (let ((gray (or (eq modus-themes-org-blocks 'gray-background)
-                  (eq modus-themes-org-blocks 'grayscale) ; for backward compatibility
-                  (eq modus-themes-org-blocks 'greyscale))))
-    (list :inherit 'modus-themes-fixed-pitch
-          :background (if gray bg 'unspecified)
-          :foreground (if gray 'unspecified fg)
-          :extend (if gray t 'unspecified))))
 
 (defun modus-themes--completion-line (bg)
   "Styles for `modus-themes-completions' with BG as the background."
@@ -1779,7 +1726,7 @@ FG and BG are the main colors."
     `(escape-glyph ((,c :foreground ,err)))
     `(file-name-shadow ((,c :inherit shadow)))
     `(header-line ((,c :inherit modus-themes-ui-variable-pitch :background ,bg-dim)))
-    `(header-line-highlight ((,c :background ,bg-hover :foreground ,fg-main :box ,fg-main)))
+    `(header-line-highlight ((,c :inherit highlight)))
     `(help-argument-name ((,c :inherit modus-themes-slant :foreground ,variable)))
     `(help-key-binding ((,c :inherit modus-themes-key-binding)))
     `(highlight ((,c :background ,bg-hover :foreground ,fg-main)))
@@ -2273,9 +2220,15 @@ FG and BG are the main colors."
     `(disk-usage-symlink ((,c :inherit dired-symlink)))
     `(disk-usage-symlink-directory ((,c :inherit dired-symlink)))
 ;;;;; display-fill-column-indicator-mode
-    `(fill-column-indicator ((,c :height 1 :background ,bg-active :foreground ,bg-active)))
+    `(fill-column-indicator ((,c :background ,bg-active :foreground ,bg-active)))
+;;;;; meow    
+    `(meow-normal-indicator ((,c :inherit bold :background ,olive :foreground ,fg-term-white-bright)))
+    `(meow-insert-indicator ((,c :inherit bold :background ,rust :foreground ,fg-term-white-bright)))
+    `(meow-keypad-indicator ((,c :inherit bold :background ,slate :foreground ,fg-term-white-bright)))
+    `(meow-beacon-indicator ((,c :inherit bold :background ,pink :foreground ,fg-term-white-bright)))
+    `(meow-motion-indicator ((,c :inherit bold :background ,indigo :foreground ,fg-term-white-bright)))
 ;;;;; doom-modeline
-    `(doom-modeline-bar ((,c :background ,blue)))
+    `(doom-modeline-bar ((,c :background ,magenta-warmer)))
     `(doom-modeline-bar-inactive ((,c :background ,border)))
     `(doom-modeline-battery-charging ((,c :foreground ,modeline-info)))
     `(doom-modeline-battery-critical ((,c :underline t :foreground ,modeline-err)))
@@ -3102,7 +3055,7 @@ FG and BG are the main colors."
     `(mode-line-active ((,c :inherit mode-line)))
     `(mode-line-buffer-id ((,c :inherit bold)))
     `(mode-line-emphasis ((,c :inherit bold :foreground ,modeline-info)))
-    `(mode-line-highlight ((,c :background ,bg-hover :foreground ,fg-main :box ,fg-main)))
+    `(mode-line-highlight ((,c :background ,bg-hover :foreground ,fg-main)))
     `(mode-line-inactive ((,c :inherit modus-themes-ui-variable-pitch
                               :box ,border-mode-line-inactive
                               :background ,bg-mode-line-inactive
@@ -3312,8 +3265,8 @@ FG and BG are the main colors."
     `(org-agenda-structure-filter ((,c :inherit org-agenda-structure :foreground ,warning)))
     `(org-agenda-structure-secondary ((,c :inherit font-lock-doc-face)))
     `(org-archived ((,c :background ,bg-inactive :foreground ,fg-main)))
-    `(org-block ((,c ,@(modus-themes--org-block fg-main bg-dim))))
-    `(org-block-begin-line ((,c ,@(modus-themes--org-block prose-block bg-inactive))))
+    `(org-block ((,c :inherit modus-themes-fixed-pitch :background ,bg-inactive :extend t)))
+    `(org-block-begin-line ((,c :inherit (shadow modus-themes-fixed-pitch) :background ,bg-dim :extend t)))
     `(org-block-end-line ((,c :inherit org-block-begin-line)))
     `(org-checkbox ((,c :foreground ,warning)))
     `(org-checkbox-statistics-done ((,c :inherit org-done)))
@@ -3381,6 +3334,16 @@ FG and BG are the main colors."
     `(org-habit-overdue-future-face ((,c :background ,bg-graph-red-1)))
     `(org-habit-ready-face ((,c :background ,bg-graph-green-0 :foreground "black"))) ; fg is special case
     `(org-habit-ready-future-face ((,c :background ,bg-graph-green-1)))
+;;;; org-modern
+    `(org-modern-date-active ((,c :inherit (ef-themes-fixed-pitch org-modern-label) :background ,bg-dim)))
+    `(org-modern-date-inactive ((,c :inherit (ef-themes-fixed-pitch org-modern-label) :background ,bg-dim :foreground ,fg-dim)))
+    `(org-modern-done ((,c :inherit org-modern-label :background ,bg-info :foreground ,info)))
+    `(org-modern-priority ((,c :inherit (org-modern-label org-priority) :background ,bg-dim)))
+    `(org-modern-statistics ((,c :inherit org-modern-label :background ,bg-dim)))
+    `(org-modern-tag ((,c :inherit (org-modern-label org-tag) :background ,bg-dim)))
+    `(org-modern-time-active ((,c :inherit (ef-themes-fixed-pitch org-modern-label) :background ,bg-active :foreground ,fg-dim)))
+    `(org-modern-time-inactive ((,c :inherit (org-modern-label org-modern-date-inactive))))
+    `(org-modern-todo ((,c :inherit org-modern-label :background ,bg-err :foreground ,err)))
 ;;;;; org-journal
     `(org-journal-calendar-entry-face ((,c :inherit modus-themes-slant :foreground ,date-common)))
     `(org-journal-calendar-scheduled-face ((,c :inherit (modus-themes-slant org-scheduled))))
@@ -3746,8 +3709,8 @@ FG and BG are the main colors."
     `(tab-bar ((,c :inherit modus-themes-ui-variable-pitch :background ,bg-tab-bar)))
     `(tab-bar-tab-group-current ((,c :inherit bold :background ,bg-tab-current :box (:line-width -2 :color ,bg-tab-current) :foreground ,fg-alt)))
     `(tab-bar-tab-group-inactive ((,c :background ,bg-tab-bar :box (:line-width -2 :color ,bg-tab-bar) :foreground ,fg-alt)))
-    `(tab-bar-tab ((,c :inherit bold :box (:line-width -2 :color ,bg-tab-current) :background ,bg-tab-current)))
-    `(tab-bar-tab-inactive ((,c :box (:line-width -2 :color ,bg-tab-other) :background ,bg-tab-other)))
+    `(tab-bar-tab ((,c :inherit bold :box (:line-width -2 :color ,bg-tab-current) :background ,bg-tab-current :foreground ,fg-main :underline (:style line :color ,fg-main))))
+    `(tab-bar-tab-inactive ((,c :box (:line-width -2 :color ,bg-tab-other) :foreground ,fg-comment :background ,bg-tab-other)))
     `(tab-bar-tab-ungrouped ((,c :inherit tab-bar-tab-inactive)))
 ;;;;; tab-line-mode
     `(tab-line ((,c :inherit modus-themes-ui-variable-pitch :background ,bg-tab-bar :height 0.95)))
@@ -3767,13 +3730,19 @@ FG and BG are the main colors."
     `(telega-chat-prompt ((,c :inherit modus-themes-prompt)))
     `(telega-entity-type-code ((,c :inherit modus-themes-prose-verbatim)))
     `(telega-entity-type-mention ((,c :foreground ,cyan)))
+    `(telega-entity-type-blockquote ((,c :inherit italic :foreground ,fg-comment)))
     `(telega-entity-type-pre ((,c :inherit modus-themes-prose-code)))
     `(telega-entity-type-spoiler ((,c :background ,fg-main :foreground ,fg-main)))
     `(telega-msg-heading ((,c :background ,bg-inactive)))
-    `(telega-msg-self-title ((,c :inherit bold)))
-    `(telega-root-heading ((,c :background ,bg-inactive)))
+    `(telega-msg-self-title ((,c :inherit (bold italic) :foreground ,gold :italic t)))
+    `(telega-msg-user-title ((,c :inherit italic)))
+    `(telega-msg-inline-reply ((,c :background ,bg-main :foreground ,olive)))
+    `(telega-msg-inline-forward ((,c :background ,bg-main :foreground ,gold)))
+    `(telega-root-heading ((,c :inherit bold :foreground ,indigo :background ,bg-inactive)))
     `(telega-secret-title ((,c :foreground ,magenta-warmer)))
-    `(telega-unmuted-count ((,c :foreground ,blue-cooler)))
+    `(telega-unmuted-count ((,c :foreground ,gold)))
+    `(telega-mention-count ((,c :inherit bold :foreground ,red-intense)))
+    `(telega-muted-count ((,c :inherit bold :foreground ,olive)))
     `(telega-user-online-status ((,c :foreground ,cyan)))
     `(telega-username ((,c :foreground ,cyan-cooler)))
     `(telega-webpage-chat-link ((,c :background ,bg-inactive)))
@@ -4156,8 +4125,6 @@ FG and BG are the main colors."
         modus-themes-fg-magenta-intense
         modus-themes-fg-cyan-intense))
 ;;;; org-src-block-faces
-    (if (or (eq modus-themes-org-blocks 'tinted-background)
-            (eq modus-themes-org-blocks 'rainbow))
         `(org-src-block-faces
           `(("emacs-lisp" modus-themes-nuanced-magenta)
             ("elisp" modus-themes-nuanced-magenta)
@@ -4177,7 +4144,7 @@ FG and BG are the main colors."
             ("yaml" modus-themes-nuanced-cyan)
             ("conf" modus-themes-nuanced-cyan)
             ("docker" modus-themes-nuanced-cyan)))
-      `(org-src-block-faces '())))
+      `(org-src-block-faces '()))
   "Custom variables for `modus-themes-theme'.")
 
 ;;; Theme macros

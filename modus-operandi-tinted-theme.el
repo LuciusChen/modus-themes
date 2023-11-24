@@ -57,86 +57,82 @@ which corresponds to a minimum contrast in relative luminance of
     '(
 ;;; Basic values
 
-      (bg-main          "#fbf7f0")
-      (bg-dim           "#efe9dd")
-      (fg-main          "#000000")
-      (fg-dim           "#595959")
-      (fg-alt           "#193668")
-      (bg-active        "#c9b9b0")
-      (bg-inactive      "#dfd5cf")
-      (border           "#9f9690")
+      (bg-main          "#f6fff9")
+      (bg-dim           "#e8f0f0")
+      (fg-main          "#34494a")
+      (fg-dim           "#777294")
+      (fg-alt           "#9d5e7a")
+      (bg-info          "#cfedd1")
+      (bg-err           "#f6c9ce")
+      (bg-active        "#c0c6c3")
+      (bg-inactive      "#f0f8f4")
+      (border           "#376751")
 
 ;;; Common accent foregrounds
 
-      (red             "#a60000")
-      (red-warmer      "#972500")
-      (red-cooler      "#a0132f")
-      (red-faint       "#7f0000")
+      (red             "#c42d2f")
+      (red-warmer      "#d03003")
+      (red-cooler      "#cf2f4f")
+      (red-faint       "#b64850")
       (red-intense     "#d00000")
-      (green           "#006800")
-      (green-warmer    "#316500")
-      (green-cooler    "#00663f")
-      (green-faint     "#2a5045")
+      (green           "#1a870f")
+      (green-warmer    "#4a7d00")
+      (green-cooler    "#007f68")
+      (green-faint     "#61756c")
       (green-intense   "#008900")
-      (yellow          "#6f5500")
-      (yellow-warmer   "#884900")
-      (yellow-cooler   "#7a4f2f")
-      (yellow-faint    "#624416")
-      (yellow-intense  "#808000")
-      (blue            "#0031a9")
-      (blue-warmer     "#3548cf")
-      (blue-cooler     "#0000b0")
-      (blue-faint      "#003497")
+      (yellow          "#a45f22")
+      (yellow-warmer   "#b6540f")
+      (yellow-cooler   "#ae5a30")
+      (yellow-faint    "#876450")
+      (yellow-intense  "#b8b323")
+      (blue            "#375cc6")
+      (blue-warmer     "#5f5fdf")
+      (blue-cooler     "#265fbf")
+      (blue-faint      "#6a65bf")
       (blue-intense    "#0000ff")
-      (magenta         "#721045")
-      (magenta-warmer  "#8f0075")
-      (magenta-cooler  "#531ab6")
-      (magenta-faint   "#7c318f")
+      (magenta         "#d5206f")
+      (magenta-warmer  "#cb26a0")
+      (magenta-cooler  "#9435b4")
+      (magenta-faint   "#a04360")
       (magenta-intense "#dd22dd")
-      (cyan            "#005e8b")
-      (cyan-warmer     "#3f578f")
-      (cyan-cooler     "#005f5f")
-      (cyan-faint      "#005077")
+      (cyan            "#1f6fbf")
+      (cyan-warmer     "#3f6faf")
+      (cyan-cooler     "#0f7b8f")
+      (cyan-faint      "#5f6abf")
       (cyan-intense    "#008899")
 
 ;;; Uncommon accent foregrounds
 
-      (rust       "#8a290f")
-      (gold       "#80601f")
-      (olive      "#56692d")
-      (slate      "#2f3f83")
-      (indigo     "#4a3a8a")
-      (maroon     "#731c52")
-      (pink       "#7b435c")
+      (rust       "#B54434")
+      (gold       "#E2943B")
+      (olive      "#7BA23F")
+      (slate      "#4E4F97")
+      (indigo     "#77428D")
+      (maroon     "#C1328E")
+      (pink       "#A8497A")
 
 ;;; Common accent backgrounds
 
       (bg-red-intense     "#ff8f88")
-      (bg-green-intense   "#8adf80")
-      (bg-yellow-intense  "#f3d000")
-      (bg-blue-intense    "#bfc9ff")
-      (bg-magenta-intense "#dfa0f0")
-      (bg-cyan-intense    "#a4d5f9")
+      (bg-green-intense   "#6fdf30")
+      (bg-yellow-intense  "#efcf00")
+      (bg-blue-intense    "#afdfff")
+      (bg-magenta-intense "#df8fff")
+      (bg-cyan-intense    "#88cfe0")
 
       (bg-red-subtle      "#ffcfbf")
-      (bg-green-subtle    "#b3fabf")
+      (bg-green-subtle    "#afffbf")
       (bg-yellow-subtle   "#fff576")
       (bg-blue-subtle     "#ccdfff")
       (bg-magenta-subtle  "#ffddff")
       (bg-cyan-subtle     "#bfefff")
 
-      (bg-red-nuanced     "#ffe8f0")
-      (bg-green-nuanced   "#e0f5e0")
-      (bg-yellow-nuanced  "#f9ead0")
-      (bg-blue-nuanced    "#ebebff")
-      (bg-magenta-nuanced "#f6e7ff")
-      (bg-cyan-nuanced    "#e1f3fc")
-
-;;; Uncommon accent backgrounds
-
-      (bg-ochre    "#f0e0cc")
-      (bg-lavender "#dfdbfa")
-      (bg-sage     "#c0e7d4")
+      (bg-red-nuanced     "#350f14")
+      (bg-green-nuanced   "#002718")
+      (bg-yellow-nuanced  "#2c1f00")
+      (bg-blue-nuanced    "#131c4d")
+      (bg-magenta-nuanced "#2f133f")
+      (bg-cyan-nuanced    "#04253f")
 
 ;;; Graphs
 
@@ -155,61 +151,67 @@ which corresponds to a minimum contrast in relative luminance of
 
 ;;; Special purpose
 
-      (bg-completion       "#f0c1cf")
-      (bg-hover            "#b2e4dc")
-      (bg-hover-secondary  "#f5d0a0")
-      (bg-hl-line          "#f1d5d0")
-      (bg-region           "#c2bcb5")
-      (fg-region           "#000000")
+      (bg-completion      "#ccedff")
+      (bg-hover             bg-main)
+      (bg-hover-secondary "#f0bfff")
+      (bg-hl-line         "#f9e0e5")
+      (bg-region          "#d0e6ff")
+      (fg-region            fg-main)
+      (fg-comment         "#808F7C")
 
       (bg-char-0 "#7feaff")
       (bg-char-1 "#ffaaff")
       (bg-char-2 "#dff000")
 
-      (bg-mode-line-active        "#cab9b2")
-      (fg-mode-line-active        "#000000")
-      (border-mode-line-active    "#545454")
-      (bg-mode-line-inactive      "#dfd9cf")
-      (fg-mode-line-inactive      "#585858")
-      (border-mode-line-inactive  "#a59a94")
+      (bg-mode-line-active        "#F5F5F5")
+      (fg-mode-line-active        fg-main)
+      (border-mode-line-active    "#e7e7e7")
+      (bg-mode-line-inactive      "#e1e6e3")
+      (fg-mode-line-inactive      "#969696")
+      (border-mode-line-inactive  "#c0c6c3")
 
-      (modeline-err     "#7f0000")
-      (modeline-warning "#5f0070")
-      (modeline-info    "#002580")
+      (modeline-err     "#9f0030")
+      (modeline-warning "#5f0f9f")
+      (modeline-info    "#1240af")
 
-      (bg-tab-bar      "#e0d4ce")
-      (bg-tab-current  "#fbf7f0")
-      (bg-tab-other    "#c8b8b2")
+      (bg-tab-bar         bg-main)
+      (bg-tab-current     bg-main)
+      (bg-tab-other       bg-main)
 
 ;;; Diffs
-
-      (bg-added           "#c3ebc1")
-      (bg-added-faint     "#dcf8d1")
-      (bg-added-refine    "#acd6a5")
-      (bg-added-fringe    "#6cc06c")
+      (bg-added           "#c9ffda")
+      (bg-added-faint     "#d7ffe5")
+      (bg-added-refine    "#b3efcf")
+      (bg-added-fringe    "#23884f")
       (fg-added           "#005000")
-      (fg-added-intense   "#006700")
+      (fg-added-intense   "#80e080")
 
-      (bg-changed         "#ffdfa9")
-      (bg-changed-faint   "#ffefbf")
-      (bg-changed-refine  "#fac090")
-      (bg-changed-fringe  "#c0b200")
+      (bg-changed         "#f0e8bd")
+      (bg-changed-faint   "#f5efcb")
+      (bg-changed-refine  "#efd299")
+      (bg-changed-fringe  "#edce5f")
       (fg-changed         "#553d00")
-      (fg-changed-intense "#655000")
+      (fg-changed-intense "#c0b05f")
 
-      (bg-removed         "#f4d0cf")
-      (bg-removed-faint   "#ffe9e5")
-      (bg-removed-refine  "#f3b5a7")
-      (bg-removed-fringe  "#d84a4f")
+      (bg-removed         "#ffd6e0")
+      (bg-removed-faint   "#ffe9e6")
+      (bg-removed-refine  "#f5bfc8")
+      (bg-removed-fringe  "#b81a26")
       (fg-removed         "#8f1313")
-      (fg-removed-intense "#aa2222")
+      (fg-removed-intense "#ff9095")
 
-      (bg-diff-context    "#efe9df")
+      (bg-diff-context    "#e9f0f0")
+
+;;; Uncommon accent backgrounds
+
+      (bg-ochre    "#442c2f")
+      (bg-lavender "#38325c")
+      (bg-sage     "#0f3d30")
 
 ;;; Paren match
 
-      (bg-paren-match        "#7fdfcf")
-      (bg-paren-expression   "#efd3f5")
+      (bg-paren-match        "#7fddd0")
+      (bg-paren-expression   "#9c628e")
       (underline-paren-match unspecified)
 
 ;;; Mappings
@@ -217,19 +219,19 @@ which corresponds to a minimum contrast in relative luminance of
 ;;;; General mappings
 
       (fringe bg-dim)
-      (cursor red)
+      (cursor maroon)
 
       (keybind blue-cooler)
       (name magenta)
-      (identifier yellow-cooler)
+      (identifier yellow-faint)
 
       (err red)
       (warning yellow-warmer)
       (info cyan-cooler)
 
       (underline-err red-intense)
-      (underline-warning yellow-intense)
-      (underline-note cyan-intense)
+      (underline-warning yellow)
+      (underline-note cyan)
 
       (bg-prominent-err bg-red-intense)
       (fg-prominent-err fg-main)
@@ -241,9 +243,9 @@ which corresponds to a minimum contrast in relative luminance of
 ;;;; Code mappings
 
       (builtin magenta-warmer)
-      (comment red-faint)
+      (comment fg-comment)
       (constant blue-cooler)
-      (docstring green-faint)
+      (docstring cyan-faint)
       (docmarkup magenta-faint)
       (fnname magenta)
       (keyword magenta-cooler)
@@ -256,10 +258,10 @@ which corresponds to a minimum contrast in relative luminance of
 
 ;;;; Accent mappings
 
-      (accent-0 blue)
+      (accent-0 blue-cooler)
       (accent-1 magenta-warmer)
-      (accent-2 cyan)
-      (accent-3 red)
+      (accent-2 cyan-cooler)
+      (accent-3 yellow)
 
 ;;;; Button mappings
 
@@ -270,10 +272,10 @@ which corresponds to a minimum contrast in relative luminance of
 
 ;;;; Completion mappings
 
-      (fg-completion-match-0 blue)
-      (fg-completion-match-1 magenta-warmer)
-      (fg-completion-match-2 cyan)
-      (fg-completion-match-3 red)
+      (fg-completion-match-0 cyan-intense)
+      (fg-completion-match-1 red-warmer)
+      (fg-completion-match-2 magenta)
+      (fg-completion-match-3 cyan-cooler)
       (bg-completion-match-0 unspecified)
       (bg-completion-match-1 unspecified)
       (bg-completion-match-2 unspecified)
@@ -296,8 +298,8 @@ which corresponds to a minimum contrast in relative luminance of
 
       (fg-line-number-inactive fg-dim)
       (fg-line-number-active fg-main)
-      (bg-line-number-inactive bg-dim)
-      (bg-line-number-active bg-active)
+      (bg-line-number-inactive bg-main)
+      (bg-line-number-active bg-dim)
 
 ;;;; Link mappings
 
@@ -315,11 +317,11 @@ which corresponds to a minimum contrast in relative luminance of
 
 ;;;; Mail mappings
 
-      (mail-cite-0 blue-faint)
-      (mail-cite-1 yellow-warmer)
+      (mail-cite-0 blue-warmer)
+      (mail-cite-1 yellow-cooler)
       (mail-cite-2 cyan-cooler)
       (mail-cite-3 red-cooler)
-      (mail-part cyan)
+      (mail-part blue)
       (mail-recipient magenta-cooler)
       (mail-subject magenta-warmer)
       (mail-other magenta-faint)
@@ -327,7 +329,7 @@ which corresponds to a minimum contrast in relative luminance of
 ;;;; Mark mappings
 
       (bg-mark-delete bg-red-subtle)
-      (fg-mark-delete red)
+      (fg-mark-delete red-cooler)
       (bg-mark-select bg-cyan-subtle)
       (fg-mark-select cyan)
       (bg-mark-other bg-yellow-subtle)
@@ -335,13 +337,14 @@ which corresponds to a minimum contrast in relative luminance of
 
 ;;;; Prompt mappings
 
-      (fg-prompt cyan-cooler)
+      (fg-prompt fg-main)
       (bg-prompt unspecified)
+      (bg-space-err bg-red-intense)
 
 ;;;; Prose mappings
 
       (prose-block fg-dim)
-      (prose-code green-cooler)
+      (prose-code cyan-cooler)
       (prose-done green)
       (prose-macro magenta-cooler)
       (prose-metadata fg-dim)
@@ -367,7 +370,6 @@ which corresponds to a minimum contrast in relative luminance of
 
       (bg-space unspecified)
       (fg-space border)
-      (bg-space-err bg-red-intense)
 
 ;;;; Terminal mappings
 
@@ -413,15 +415,15 @@ which corresponds to a minimum contrast in relative luminance of
 
 ;;;; Heading mappings
 
-      (fg-heading-0 cyan-cooler)
-      (fg-heading-1 fg-main)
-      (fg-heading-2 yellow-faint)
-      (fg-heading-3 fg-alt)
-      (fg-heading-4 magenta)
-      (fg-heading-5 green-faint)
-      (fg-heading-6 red-faint)
-      (fg-heading-7 cyan-warmer)
-      (fg-heading-8 fg-dim)
+      (fg-heading-0 "#a626a4")
+      (fg-heading-1 "#e45649")
+      (fg-heading-2 "#da8548")
+      (fg-heading-3 "#b751b6")
+      (fg-heading-4 "#6f99f5")
+      (fg-heading-5 "#bc5cba")
+      (fg-heading-6 "#9fbbf8")
+      (fg-heading-7 "#d292d1")
+      (fg-heading-8 "#d8e4fc")
 
       (bg-heading-0 unspecified)
       (bg-heading-1 unspecified)
