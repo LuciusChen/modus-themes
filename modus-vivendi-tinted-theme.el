@@ -353,6 +353,7 @@ which corresponds to a minimum contrast in relative luminance of
       (prose-table fg-alt)
       (prose-tag magenta-faint)
       (prose-verbatim magenta-warmer)
+      (prose-todo red-faint)
 
 ;;;; Rainbow mappings
 
