@@ -958,7 +958,6 @@ Info node `(modus-themes) Option for palette overrides'.")
     (prose-metadata magenta-faint)
     (prose-metadata-value blue-cooler)
     (prose-table blue)
-    (prose-todo red-intense)
 
     (fg-heading-0 blue-cooler)
     (fg-heading-1 magenta-cooler)
