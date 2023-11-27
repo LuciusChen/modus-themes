@@ -3350,7 +3350,7 @@ FG and BG are the main colors."
 ;;;;; org-recur
     `(org-recur ((,c :foreground ,fg-alt)))
 ;;;;; org-remark
-    `(org-remark-highlighter ((,c :foreground ,bg-main :background ,pink :underline (:style line :color ,underline-err))))
+    `(org-remark-highlighter ((,c :foreground ,bg-main :background ,pink)))
 ;;;;; org-roam
     `(org-roam-dim ((,c :foreground "gray50")))
     `(org-roam-olp ((,c :inherit shadow)))
