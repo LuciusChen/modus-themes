@@ -878,13 +878,6 @@ represents."
 
     (fg-prompt cyan-faint)
 
-    (prose-code olive)
-    (prose-done green-faint)
-    (prose-macro indigo)
-    (prose-tag rust)
-    (prose-todo red-faint)
-    (prose-verbatim maroon)
-
     (rainbow-0 fg-main)
     (rainbow-1 magenta)
     (rainbow-2 cyan)
