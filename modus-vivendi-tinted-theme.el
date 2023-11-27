@@ -342,19 +342,6 @@ which corresponds to a minimum contrast in relative luminance of
       (bg-prompt unspecified)
       (bg-space-err bg-red-intense)
 
-;;;; Prose mappings
-
-      (prose-block fg-dim)
-      (prose-code cyan-cooler)
-      (prose-done green-intense)
-      (prose-macro magenta-cooler)
-      (prose-metadata fg-dim)
-      (prose-metadata-value fg-alt)
-      (prose-table fg-alt)
-      (prose-tag magenta-faint)
-      (prose-verbatim magenta-warmer)
-      (prose-todo red-faint)
-
 ;;;; Rainbow mappings
 
       (rainbow-0 fg-main)
