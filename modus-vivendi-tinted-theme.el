@@ -136,12 +136,12 @@ which corresponds to a minimum contrast in relative luminance of
 
 ;;; Graphs
 
-      (bg-graph-red-0     "#b52c2c")
-      (bg-graph-red-1     "#702020")
+      (bg-graph-red-0     "#FF5456")
+      (bg-graph-red-1     "#FFAFAF")
       (bg-graph-green-0   "#0fed00")
-      (bg-graph-green-1   "#007800")
+      (bg-graph-green-1   "#97FF97")
       (bg-graph-yellow-0  "#f1e00a")
-      (bg-graph-yellow-1  "#b08940")
+      (bg-graph-yellow-1  "#FCFF54")
       (bg-graph-blue-0    "#2fafef")
       (bg-graph-blue-1    "#1f2f8f")
       (bg-graph-magenta-0 "#bf94fe")
