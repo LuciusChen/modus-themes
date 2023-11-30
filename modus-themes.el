@@ -3718,6 +3718,7 @@ FG and BG are the main colors."
 ;;;;; table (built-in table.el)
     `(table-cell ((,c :background ,bg-dim)))
 ;;;;; telega
+    `(telega-entity-type-code ((,c :background ,bg-inactive)))
     `(telega-button ((,c :box t :foreground ,fg-link)))
     `(telega-button-active ((,c :box ,fg-link :background ,fg-link :foreground ,bg-main)))
     `(telega-button-highlight ((,c :inherit secondary-selection)))
