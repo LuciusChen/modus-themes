@@ -3724,7 +3724,7 @@ FG and BG are the main colors."
     `(telega-chat-prompt ((,c :inherit modus-themes-prompt)))
     `(telega-entity-type-code ((,c :inherit modus-themes-prose-verbatim)))
     `(telega-entity-type-mention ((,c :foreground ,cyan)))
-    `(telega-entity-type-blockquote ((,c :inherit italic :foreground ,fg-comment)))
+    `(telega-entity-type-blockquote ((,c :foreground ,fg-comment)))
     `(telega-entity-type-pre ((,c :inherit modus-themes-prose-code)))
     `(telega-entity-type-spoiler ((,c :background ,fg-main :foreground ,fg-main)))
     `(telega-msg-heading ((,c :background ,bg-inactive)))
