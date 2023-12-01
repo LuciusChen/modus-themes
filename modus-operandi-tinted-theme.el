@@ -84,7 +84,7 @@ which corresponds to a minimum contrast in relative luminance of
       (yellow-warmer   "#b6540f")
       (yellow-cooler   "#ae5a30")
       (yellow-faint    "#876450")
-      (yellow-intense  "#b8b323")
+      (yellow-intense  "#d1cb24")
       (blue            "#375cc6")
       (blue-warmer     "#5f5fdf")
       (blue-cooler     "#265fbf")
