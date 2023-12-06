@@ -375,8 +375,8 @@ which corresponds to a minimum contrast in relative luminance of
 
       (bg-term-black           "black")
       (fg-term-black           "black")
-      (bg-term-black-bright    "gray35")
-      (fg-term-black-bright    "gray35")
+      (bg-term-black-bright    fg-comment)
+      (fg-term-black-bright    fg-comment)
 
       (bg-term-red             red)
       (fg-term-red             red)
