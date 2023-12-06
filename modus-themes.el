@@ -3894,7 +3894,7 @@ FG and BG are the main colors."
     ;; NOTE 2023-08-10: `vterm-color-black' and `vterm-color-white'
     ;; use the "bright" semantic color mappings to make sure they are
     ;; distinct from `vterm-color-default'.
-    `(vterm-color-black ((,c :background ,bg-term-black :foreground ,fg-term-black)))
+    `(vterm-color-black ((,c :background ,bg-term-black :foreground ,fg-term-black-bright)))
     `(vterm-color-blue ((,c :background ,bg-term-blue :foreground ,fg-term-blue)))
     `(vterm-color-cyan ((,c :background ,bg-term-cyan :foreground ,fg-term-cyan)))
     `(vterm-color-default ((,c :background ,bg-main :foreground ,fg-main)))
