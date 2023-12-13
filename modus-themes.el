@@ -2212,7 +2212,7 @@ FG and BG are the main colors."
     `(disk-usage-symlink ((,c :inherit dired-symlink)))
     `(disk-usage-symlink-directory ((,c :inherit dired-symlink)))
 ;;;;; display-fill-column-indicator-mode
-    `(fill-column-indicator ((,c :background ,bg-active :foreground ,bg-active)))
+    ;; `(fill-column-indicator ((,c :background ,bg-active :foreground ,bg-active)))
 ;;;;; meow    
     `(meow-normal-indicator ((,c :inherit bold :background ,olive :foreground ,fg-term-white-bright)))
     `(meow-insert-indicator ((,c :inherit bold :background ,rust :foreground ,fg-term-white-bright)))
