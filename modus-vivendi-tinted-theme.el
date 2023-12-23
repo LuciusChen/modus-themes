@@ -135,6 +135,12 @@ which corresponds to a minimum contrast in relative luminance of
       (bg-magenta-nuanced "#260733")
       (bg-cyan-nuanced    "#02202c")
 
+;;; Uncommon accent backgrounds
+
+      (bg-ochre    "#442c2f")
+      (bg-lavender "#38325c")
+      (bg-sage     "#0f3d30")
+
 ;;; Graphs
 
       (bg-graph-red-0     "#FF5456")
@@ -203,12 +209,6 @@ which corresponds to a minimum contrast in relative luminance of
       (fg-removed-intense "#ff9095")
 
       (bg-diff-context    "#1a1f30")
-
-;;; Uncommon accent backgrounds
-
-      (bg-ochre    "#442c2f")
-      (bg-lavender "#38325c")
-      (bg-sage     "#0f3d30")
 
 ;;; Paren match
 
@@ -346,7 +346,6 @@ which corresponds to a minimum contrast in relative luminance of
 
       (fg-prompt fg-main)
       (bg-prompt unspecified)
-      (bg-space-err bg-red-intense)
 
 ;;;; Prose mappings
 
@@ -374,10 +373,22 @@ which corresponds to a minimum contrast in relative luminance of
       (rainbow-7 blue-warmer)
       (rainbow-8 magenta-warmer)
 
+;;;; Search mappings
+
+      (bg-search-current bg-yellow-intense)
+      (bg-search-lazy bg-cyan-intense)
+      (bg-search-replace bg-red-intense)
+
+      (bg-search-rx-group-0 bg-blue-intense)
+      (bg-search-rx-group-1 bg-green-intense)
+      (bg-search-rx-group-2 bg-red-subtle)
+      (bg-search-rx-group-3 bg-magenta-subtle)
+
 ;;;; Space mappings
 
       (bg-space unspecified)
       (fg-space border)
+      (bg-space-err bg-red-intense)
 
 ;;;; Terminal mappings
 
