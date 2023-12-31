@@ -3627,7 +3627,7 @@ FG and BG are the main colors."
 ;;;;; telega
     `(telega-entity-type-code ((,c :foreground ,yellow-intense :background ,bg-inactive :extend t)))
     `(telega-button ((,c :box t :foreground ,fg-link)))
-    `(telega-box-button ((,c :box (:line-width (-1 . -1) :foreground ,fg-link))))
+    `(telega-box-button ((,c :box (:line-width (-1 . -1)) :foreground ,fg-link)))
     `(telega-button-active ((,c :box ,fg-link :background ,fg-link :foreground ,bg-main)))
     `(telega-button-highlight ((,c :inherit secondary-selection)))
     `(telega-chat-prompt ((,c :inherit modus-themes-prompt)))
