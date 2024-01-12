@@ -71,7 +71,7 @@ which corresponds to a minimum contrast in relative luminance of
 
 ;;; Common accent foregrounds
 
-      (red             "#ff443d")
+      (red             "#bf2011")
       (red-warmer      "#ff6b55")
       (red-cooler      "#ff7f9f")
       (red-faint       "#FF7549")
@@ -227,7 +227,7 @@ which corresponds to a minimum contrast in relative luminance of
       (name magenta)
       (identifier yellow-faint)
 
-      (err red-intense)
+      (err red)
       (warning yellow-warmer)
       (info cyan-cooler)
 
