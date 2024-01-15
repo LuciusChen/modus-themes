@@ -60,7 +60,7 @@ which corresponds to a minimum contrast in relative luminance of
 
       (bg-main          "#172021")
       (bg-dim           "#192627")
-      (fg-main          "#BBBBBB")
+      (fg-main          "#C7D6E2")
       (fg-dim           "#989898")
       (fg-alt           "#c6daff")
       (bg-info          "#143A29")
