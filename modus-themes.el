@@ -3638,7 +3638,7 @@ FG and BG are the main colors."
     `(telega-entity-type-blockquote ((,c :foreground ,fg-comment)))
     `(telega-entity-type-pre ((,c :inherit modus-themes-prose-code)))
     `(telega-entity-type-spoiler ((,c :background ,fg-main :foreground ,fg-main)))
-    `(telega-msg-heading ((,c :background ,bg-inactive :box (:color ,bg-main :line-width (-1 . -5)))))
+    `(telega-msg-heading ((,c :background ,bg-main)))
     `(telega-msg-self-title ((,c :inherit bold :foreground ,gold)))
     `(telega-msg-inline-reply ((,c :background ,bg-main :foreground ,olive)))
     `(telega-msg-inline-forward ((,c :background ,bg-main :foreground ,gold)))
