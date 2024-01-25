@@ -58,7 +58,7 @@ which corresponds to a minimum contrast in relative luminance of
     '(
 ;;; Basic values
 
-      (bg-main          "#172021")
+      (bg-main          "#101010")
       (bg-dim           "#192627")
       (fg-main          "#eeeeee")
       (fg-dim           "#989898")
@@ -66,7 +66,7 @@ which corresponds to a minimum contrast in relative luminance of
       (bg-info          "#143A29")
       (bg-err           "#3D2121")
       (bg-active        "#1d282a")
-      (bg-inactive      "#1f292b")
+      (bg-inactive      "#161B22")
       (border           "#376751")
 
 ;;; Common accent foregrounds
