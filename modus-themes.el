@@ -1,6 +1,6 @@
 ;;; modus-themes.el --- Elegant, highly legible and customizable themes -*- lexical-binding:t -*-
 
-;; Copyright (C) 2019-2023  Free Software Foundation, Inc.
+;; Copyright (C) 2019-2024  Free Software Foundation, Inc.
 
 ;; Author: Protesilaos Stavrou <info@protesilaos.com>
 ;; Maintainer: Modus-Themes Development <~protesilaos/modus-themes@lists.sr.ht>
@@ -1011,10 +1011,10 @@ Info node `(modus-themes) Option for palette overrides'.")
   "Get WCAG value of color value HEX.
 The value is defined in hexadecimal RGB notation, such #123456."
   (cl-loop for k in '(0.2126 0.7152 0.0722)
-        for x in (color-name-to-rgb hex)
-        sum (* k (if (<= x 0.03928)
-                     (/ x 12.92)
-                   (expt (/ (+ x 0.055) 1.055) 2.4)))))
+           for x in (color-name-to-rgb hex)
+           sum (* k (if (<= x 0.03928)
+                        (/ x 12.92)
+                      (expt (/ (+ x 0.055) 1.055) 2.4)))))
 
 ;;;###autoload
 (defun modus-themes-contrast (c1 c2)
@@ -1160,7 +1160,9 @@ symbol, which is safe when used as a face attribute's value."
   "Return completion annotation for THEME."
   (when-let ((symbol (intern-soft theme))
              (doc-string (get symbol 'theme-documentation)))
-    (format " -- %s" (car (split-string doc-string "\\.")))))
+    (format " -- %s"
+            (propertize (car (split-string doc-string "\\."))
+                        'face 'completions-annotations))))
 
 (defun modus-themes--completion-table (category candidates)
   "Pass appropriate metadata CATEGORY to completion CANDIDATES."
@@ -1325,7 +1327,7 @@ ALIST-KEY.  If no alist is present, search the PROPERTIES
 list given LIST-PRED, using DEFAULT as a fallback."
   (if-let* ((val (or (alist-get alist-key properties)
                      (cl-loop for x in properties
-                           if (funcall list-pred x) return x)
+                              if (funcall list-pred x) return x)
                      default))
             ((listp val)))
       (car val)
