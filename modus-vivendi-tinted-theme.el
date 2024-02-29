@@ -63,8 +63,8 @@ which corresponds to a minimum contrast in relative luminance of
       (fg-main          "#eeeeee")
       (fg-dim           "#989898")
       (fg-alt           "#c6daff")
-      (bg-info          "#143A29")
-      (bg-err           "#3A1414")
+      (bg-info          "#417851")
+      (bg-err           "#d44242")
       (bg-active        "#1d282a")
       (bg-inactive      "#161B22")
       (border           "#376751")
@@ -227,9 +227,9 @@ which corresponds to a minimum contrast in relative luminance of
       (name magenta)
       (identifier yellow-faint)
 
-      (err red)
+      (err "#fbe5fd")
       (warning yellow-warmer)
-      (info cyan-cooler)
+      (info "#c4fdee")
 
       (underline-err red-intense)
       (underline-warning yellow)
