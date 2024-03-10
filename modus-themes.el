@@ -3046,7 +3046,7 @@ FG and BG are the main colors."
     `(nerd-icons-maroon ((,c :foreground ,magenta)))
     `(nerd-icons-orange ((,c :foreground ,yellow-warmer)))
     `(nerd-icons-pink ((,c :foreground ,magenta-warmer)))
-    `(nerd-icons-purple ((,c :foreground ,magenta-cooler)))
+    `(nerd-icons-purple ((,c :foreground ,purple-cooler)))
     `(nerd-icons-purple-alt ((,c :foreground ,blue-warmer)))
     `(nerd-icons-red ((,c :foreground ,red)))
     `(nerd-icons-red-alt ((,c :foreground ,red-cooler)))
