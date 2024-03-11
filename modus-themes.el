@@ -839,7 +839,8 @@ Info node `(modus-themes) Option for palette overrides'.")
 
     (fg-prompt blue-intense)
 
-    (prose-block red-faint)
+    (bg-prose-block-delimiter bg-dim)
+    (fg-prose-block-delimiter red-faint)
     (prose-done green-intense)
     (prose-metadata magenta-faint)
     (prose-metadata-value blue-cooler)
@@ -1592,7 +1593,7 @@ FG and BG are the main colors."
     `(cursor ((,c :background ,cursor)))
     `(fringe ((,c :background ,fringe :foreground ,fg-main)))
     `(menu ((,c :background ,bg-dim :foreground ,fg-main)))
-    `(scroll-bar ((,c :background ,bg-dim :foreground ,fg-dim)))
+    `(scroll-bar ((,c :background ,fringe :foreground ,border)))
     `(tool-bar ((,c :background ,bg-dim :foreground ,fg-main)))
     `(vertical-border ((,c :foreground ,border)))
 ;;;;; basic and/or ungrouped styles
@@ -1933,6 +1934,7 @@ FG and BG are the main colors."
     `(completions-annotations ((,c :inherit modus-themes-slant :foreground ,docstring)))
     `(completions-common-part ((,c :inherit modus-themes-completion-match-0)))
     `(completions-first-difference ((,c :inherit modus-themes-completion-match-1)))
+    `(completions-highlight ((,c :inherit modus-themes-completion-selected)))
 ;;;;; consult
     `(consult-async-split ((,c :inherit error)))
     `(consult-file ((,c :inherit modus-themes-bold :foreground ,info)))
@@ -2001,6 +2003,22 @@ FG and BG are the main colors."
     `(deadgrep-meta-face ((,c :inherit shadow)))
     `(deadgrep-regexp-metachar-face ((,c :inherit font-lock-regexp-grouping-construct)))
     `(deadgrep-search-term-face ((,c :inherit success)))
+;;;;; debbugs
+    `(debbugs-gnu-archived ((,c :background ,bg-inactive :foreground ,fg-dim)))
+    `(debbugs-gnu-done ((,c :inherit success)))
+    `(debbugs-gnu-forwarded ((,c :inherit modus-themes-slant :foreground ,info)))
+    `(debbugs-gnu-handled (( )))
+    `(debbugs-gnu-marked ((,c :inherit modus-themes-mark-sel)))
+    `(debbugs-gnu-marked-stale ((,c :inherit modus-themes-mark-alt)))
+    `(debbugs-gnu-new ((,c :inherit error)))
+    `(debbugs-gnu-pending ((,c :inherit modus-themes-slant :foreground ,fg-alt)))
+    `(debbugs-gnu-stale-1 ((,c :foreground ,red-cooler)))
+    `(debbugs-gnu-stale-2 ((,c :foreground ,yellow-warmer)))
+    `(debbugs-gnu-stale-3 ((,c :foreground ,magenta-warmer)))
+    `(debbugs-gnu-stale-4 ((,c :foreground ,magenta-cooler)))
+    `(debbugs-gnu-stale-5 ((,c :foreground ,cyan-faint)))
+    `(debbugs-gnu-tagged ((,c :inherit modus-themes-mark-alt)))
+    `(debbugs-gnu-title ((,c :inherit bold)))
 ;;;;; deft
     `(deft-filter-string-face ((,c :inherit success)))
     `(deft-header-face ((,c :inherit shadow)))
@@ -2277,9 +2295,11 @@ FG and BG are the main colors."
     `(erc-dangerous-host-face ((,c :inherit error)))
     `(erc-direct-msg-face ((,c :inherit shadow)))
     `(erc-error-face ((,c :inherit error)))
+    `(erc-fill-wrap-merge-indicator-face ((,c :foreground ,fg-dim)))
     `(erc-fool-face ((,c :inherit shadow)))
     `(erc-input-face ((,c :foreground ,fnname)))
     `(erc-inverse-face ((,c :inherit erc-default-face :inverse-video t)))
+    `(erc-keep-place-indicator-arrow ((,c :foreground ,info)))
     `(erc-keyword-face ((,c :inherit bold :foreground ,keyword)))
     `(erc-my-nick-face ((,c :inherit bold :foreground ,name)))
     `(erc-my-nick-prefix-face ((,c :inherit erc-my-nick-face)))
@@ -2431,7 +2451,7 @@ FG and BG are the main colors."
     `(git-timemachine-minibuffer-author-face ((,c :foreground ,name)))
     `(git-timemachine-minibuffer-detail-face ((,c :foreground ,fg-main)))
 ;;;;; gnus
-    `(gnus-button ((,c :inherit button)))
+    `(gnus-button ((,c :inherit button :underline nil)))
     `(gnus-cite-1 ((,c :inherit message-cited-text-1)))
     `(gnus-cite-2 ((,c :inherit message-cited-text-2)))
     `(gnus-cite-3 ((,c :inherit message-cited-text-3)))
@@ -2890,7 +2910,7 @@ FG and BG are the main colors."
     `(markdown-highlighting-face ((,c :inherit secondary-selection)))
     `(markdown-inline-code-face ((,c :inherit modus-themes-prose-code)))
     `(markdown-italic-face ((,c :inherit italic)))
-    `(markdown-language-keyword-face ((,c :inherit modus-themes-fixed-pitch :foreground ,prose-block)))
+    `(markdown-language-keyword-face ((,c :inherit modus-themes-fixed-pitch :background ,bg-prose-block-delimiter :foreground ,fg-prose-block-delimiter)))
     `(markdown-line-break-face ((,c :inherit nobreak-space)))
     `(markdown-link-face ((,c :inherit link)))
     `(markdown-markup-face ((,c :inherit shadow)))
@@ -2946,7 +2966,7 @@ FG and BG are the main colors."
     `(message-header-xheader ((,c :inherit message-header-other)))
     `(message-header-other ((,c :foreground ,mail-other)))
     `(message-mml ((,c :foreground ,mail-part)))
-    `(message-separator ((,c :background ,bg-active)))
+    `(message-separator ((,c :background ,bg-inactive :foreground ,fg-main)))
 ;;;;; minimap
     `(minimap-active-region-background ((,c :background ,bg-active)))
     `(minimap-current-line-face ((,c :background ,bg-cyan-intense :foreground ,fg-main)))
@@ -3007,6 +3027,7 @@ FG and BG are the main colors."
     `(mu4e-replied-face ((,c :foreground ,info)))
     `(mu4e-special-header-value-face ((,c :inherit message-header-subject)))
     `(mu4e-system-face ((,c :inherit italic)))
+    `(mu4e-thread-fold-face ((,c :foreground ,border)))
     `(mu4e-title-face (( )))
     `(mu4e-trashed-face ((,c :foreground ,err)))
     `(mu4e-unread-face ((,c :inherit bold)))
@@ -3168,10 +3189,10 @@ FG and BG are the main colors."
     `(org-agenda-structure-filter ((,c :inherit org-agenda-structure :foreground ,warning)))
     `(org-agenda-structure-secondary ((,c :inherit font-lock-doc-face)))
     `(org-archived ((,c :background ,bg-inactive :foreground ,fg-main)))
-    `(org-block ((,c :inherit modus-themes-fixed-pitch :background ,bg-inactive :extend t)))
-    `(org-block-begin-line ((,c :inherit (shadow modus-themes-fixed-pitch) :background ,bg-dim :extend t)))
+    `(org-block ((,c :inherit modus-themes-fixed-pitch :background ,bg-prose-block-contents :extend t)))
+    `(org-block-begin-line ((,c :inherit modus-themes-fixed-pitch :background ,bg-prose-block-delimiter :foreground ,fg-prose-block-delimiter :extend t)))
     `(org-block-end-line ((,c :inherit org-block-begin-line)))
-    `(org-checkbox ((,c :foreground ,warning)))
+    `(org-checkbox ((,c :inherit modus-themes-fixed-pitch :foreground ,warning)))
     `(org-checkbox-statistics-done ((,c :inherit org-done)))
     `(org-checkbox-statistics-todo ((,c :inherit org-todo)))
     `(org-clock-overlay ((,c :inherit secondary-selection)))
@@ -3961,7 +3982,20 @@ FG and BG are the main colors."
 ;;;;; yaml-mode
     `(yaml-tab-face ((,c :background ,bg-space-err)))
 ;;;;; yasnippet
-    `(yas-field-highlight-face ((,c :inherit highlight))))
+    `(yas-field-highlight-face ((,c :inherit highlight)))
+;;;;; ztree
+    `(ztreep-arrow-face ((,c :inherit shadow)))
+    `(ztreep-diff-header-face ((,c :inherit modus-themes-heading-0)))
+    `(ztreep-diff-header-small-face ((,c :inherit font-lock-doc-face)))
+    `(ztreep-diff-model-add-face ((,c :foreground ,info)))
+    `(ztreep-diff-model-diff-face ((,c :foreground ,err)))
+    `(ztreep-diff-model-ignored-face ((,c :foreground ,fg-dim :strike-through t)))
+    `(ztreep-diff-model-normal-face (( )))
+    `(ztreep-expand-sign-face ((,c :inherit shadow)))
+    `(ztreep-header-face ((,c :inherit modus-themes-heading-0)))
+    `(ztreep-leaf-face (( )))
+    `(ztreep-node-count-children-face ((,c :inherit (shadow italic))))
+    `(ztreep-node-face ((,c :foreground ,accent-0))))
   "Face specs for use with `modus-themes-theme'.")
 
 (defconst modus-themes-custom-variables
@@ -4041,27 +4075,35 @@ FG and BG are the main colors."
         modus-themes-fg-yellow-intense
         modus-themes-fg-magenta-intense
         modus-themes-fg-cyan-intense))
-;;;; org-src-block-faces
-    `(org-src-block-faces
-      `(("emacs-lisp" modus-themes-nuanced-magenta)
-        ("elisp" modus-themes-nuanced-magenta)
-        ("clojure" modus-themes-nuanced-magenta)
-        ("clojurescript" modus-themes-nuanced-magenta)
-        ("c" modus-themes-nuanced-blue)
-        ("c++" modus-themes-nuanced-blue)
-        ("sh" modus-themes-nuanced-green)
-        ("shell" modus-themes-nuanced-green)
-        ("html" modus-themes-nuanced-yellow)
-        ("xml" modus-themes-nuanced-yellow)
-        ("css" modus-themes-nuanced-red)
-        ("scss" modus-themes-nuanced-red)
-        ("python" modus-themes-nuanced-green)
-        ("ipython" modus-themes-nuanced-magenta)
-        ("r" modus-themes-nuanced-cyan)
-        ("yaml" modus-themes-nuanced-cyan)
-        ("conf" modus-themes-nuanced-cyan)
-        ("docker" modus-themes-nuanced-cyan)))
-    `(org-src-block-faces '()))
+;;;; rustic-ansi-faces
+    `(rustic-ansi-faces
+      [,fg-term-black
+       ,fg-term-red
+       ,fg-term-green
+       ,fg-term-yellow
+       ,fg-term-blue
+       ,fg-term-magenta
+       ,fg-term-cyan
+       ,fg-term-white])
+;;;; xterm-color
+    `(xterm-color-names
+      [,fg-term-black
+       ,fg-term-red
+       ,fg-term-green
+       ,fg-term-yellow
+       ,fg-term-blue
+       ,fg-term-magenta
+       ,fg-term-cyan
+       ,fg-term-white])
+    `(xterm-color-names-bright
+      [,fg-term-black-bright
+       ,fg-term-red-bright
+       ,fg-term-green-bright
+       ,fg-term-yellow-bright
+       ,fg-term-blue-bright
+       ,fg-term-magenta-bright
+       ,fg-term-cyan-bright
+       ,fg-term-white-bright]))
   "Custom variables for `modus-themes-theme'.")
 
 ;;; Theme macros
