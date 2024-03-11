@@ -73,38 +73,38 @@ which corresponds to a minimum contrast in relative luminance of
       (red               "#DC2626")
       (red-warmer        "#b91c1c")
       (red-cooler        "#991b1b")
-      (red-faint         "#ef4444")
-      (red-intense       "#f87171")
+      (red-faint         "#f87171")
+      (red-intense       "#ef4444")
       (green             "#65A30D")
       (green-warmer      "#4d7c0f")
       (green-cooler      "#3f6212")
-      (green-faint       "#84cc16")
-      (green-intense     "#a3e635")
+      (green-faint       "#a3e635")
+      (green-intense     "#84cc16")
       (yellow            "#CA8A04")
       (yellow-warmer     "#a16207")
       (yellow-cooler     "#854d0e")
-      (yellow-faint      "#eab308")
-      (yellow-intense    "#facc15")
+      (yellow-faint      "#facc15")
+      (yellow-intense    "#eab308")
       (blue              "#2563eb")
       (blue-warmer       "#1d4ed8")
       (blue-cooler       "#1e40af")
-      (blue-faint        "#3b82f6")
-      (blue-intense      "#60a5fa")
+      (blue-faint        "#60a5fa")
+      (blue-intense      "#3b82f6")
       (magenta           "#db2777")
       (magenta-warmer    "#be185d")
       (magenta-cooler    "#9d174d")
-      (magenta-faint     "#ec4899")
-      (magenta-intense   "#f472b6")
+      (magenta-faint     "#f472b6")
+      (magenta-intense   "#ec4899")
       (cyan              "#0891b2")
       (cyan-warmer       "#0e7490")
       (cyan-cooler       "#155e75")
-      (cyan-faint        "#06b6d4")
-      (cyan-intense      "#22d3ee")
+      (cyan-faint        "#22d3ee")
+      (cyan-intense      "#06b6d4")
       (purple            "#a855f7")
       (purple-warmer     "#7e22ce")
       (purple-cooler     "#6b21a8")
-      (purple-faint      "#a855f7")
-      (purple-intense    "#c084fc")
+      (purple-faint      "#c084fc")
+      (purple-intense    "#a855f7")
 
 ;;; Uncommon accent foregrounds
 
@@ -468,28 +468,28 @@ which corresponds to a minimum contrast in relative luminance of
       (overline-heading-8 unspecified))
     "The entire palette of the `modus-operandi-tinted' theme.
 
-Named colors have the form (COLOR-NAME HEX-VALUE) with the former
-as a symbol and the latter as a string.
+       Named colors have the form (COLOR-NAME HEX-VALUE) with the former
+       as a symbol and the latter as a string.
 
-Semantic color mappings have the form (MAPPING-NAME COLOR-NAME)
-with both as symbols.  The latter is a named color that already
-exists in the palette and is associated with a HEX-VALUE.")
+       Semantic color mappings have the form (MAPPING-NAME COLOR-NAME)
+       with both as symbols.  The latter is a named color that already
+       exists in the palette and is associated with a HEX-VALUE.")
 
   (defcustom modus-operandi-tinted-palette-overrides nil
     "Overrides for `modus-operandi-tinted-palette'.
 
-Mirror the elements of the aforementioned palette, overriding
-their value.
+       Mirror the elements of the aforementioned palette, overriding
+       their value.
 
-For overrides that are shared across all of the Modus themes,
-refer to `modus-themes-common-palette-overrides'.
+       For overrides that are shared across all of the Modus themes,
+       refer to `modus-themes-common-palette-overrides'.
 
-Theme-specific overrides take precedence over shared overrides.
-The idea of common overrides is to change semantic color
-mappings, such as to make the cursor red.  Wherea theme-specific
-overrides can also be used to change the value of a named color,
-such as what hexadecimal RGB value the red-warmer symbol
-represents."
+       Theme-specific overrides take precedence over shared overrides.
+       The idea of common overrides is to change semantic color
+       mappings, such as to make the cursor red.  Wherea theme-specific
+       overrides can also be used to change the value of a named color,
+       such as what hexadecimal RGB value the red-warmer symbol
+       represents."
     :group 'modus-themes
     :package-version '(modus-themes . "4.0.0")
     :version "30.1"
