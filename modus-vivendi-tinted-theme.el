@@ -442,8 +442,8 @@ which corresponds to a minimum contrast in relative luminance of
 
       (fg-heading-0 "#CF74E9")
       (fg-heading-1 "#51afef")
-      (fg-heading-2 magenta-warmer)
-      (fg-heading-3 magenta-cooler)
+      (fg-heading-2 "#da8548")
+      (fg-heading-3 "#b751b6")
       (fg-heading-4 "#7cc3f3")
       (fg-heading-5 "#d499e5")
       (fg-heading-6 "#a8d7f7")
