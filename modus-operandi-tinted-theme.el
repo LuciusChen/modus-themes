@@ -256,7 +256,7 @@ which corresponds to a minimum contrast in relative luminance of
       (builtin magenta-warmer)
       (comment fg-comment)
       (constant blue-cooler)
-      (docstring cyan-faint)
+      (docstring cyan-intense)
       (docmarkup magenta-faint)
       (fnname magenta)
       (keyword magenta-cooler)
@@ -440,15 +440,15 @@ which corresponds to a minimum contrast in relative luminance of
 
 ;;;; Heading mappings
 
-      (fg-heading-0 red-faint)
-      (fg-heading-1 cyan-faint)
-      (fg-heading-2 yellow-faint)
-      (fg-heading-3 green-faint)
-      (fg-heading-4 cyan-faint)
-      (fg-heading-5 magenta-faint)
-      (fg-heading-6 blue-faint)
-      (fg-heading-7 yellow-faint)
-      (fg-heading-8 green-faint)
+      (fg-heading-0 purple-cooler)
+      (fg-heading-1 green-faint)
+      (fg-heading-2 red-cooler)
+      (fg-heading-3 blue-cooler)
+      (fg-heading-4 yellow-faint)
+      (fg-heading-5 green-faint)
+      (fg-heading-6 red-cooler)
+      (fg-heading-7 blue-cooler)
+      (fg-heading-8 yellow-faint)
 
       (bg-heading-0 unspecified)
       (bg-heading-1 unspecified)
