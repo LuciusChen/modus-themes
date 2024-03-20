@@ -262,7 +262,7 @@ which corresponds to a minimum contrast in relative luminance of
       (keyword magenta-cooler)
       (preprocessor red-cooler)
       (string blue-warmer)
-      (type cyan-cooler)
+      (type yellow-warmer)
       (variable cyan)
       (rx-construct green-cooler)
       (rx-backslash magenta)
