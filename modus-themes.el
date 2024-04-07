@@ -2403,11 +2403,11 @@ FG and BG are the main colors."
 ;;;;; font-lock
     `(font-lock-builtin-face ((,c :inherit modus-themes-bold :foreground ,builtin)))
     `(font-lock-comment-delimiter-face ((,c :inherit font-lock-comment-face)))
-    `(font-lock-comment-face ((,c :inherit modus-themes-slant :foreground ,comment)))
+    `(font-lock-comment-face ((,c :inherit (modus-themes-slant italic) :foreground ,comment)))
     `(font-lock-constant-face ((,c :foreground ,constant)))
     `(font-lock-doc-face ((,c :inherit modus-themes-slant :foreground ,docstring)))
     `(font-lock-doc-markup-face ((,c :inherit modus-themes-slant :foreground ,docmarkup)))
-    `(font-lock-function-name-face ((,c :foreground ,fnname)))
+    `(font-lock-function-name-face ((,c :inherit italic :foreground ,fnname)))
     `(font-lock-keyword-face ((,c :inherit modus-themes-bold :foreground ,keyword)))
     `(font-lock-negation-char-face ((,c :inherit error)))
     `(font-lock-preprocessor-face ((,c :foreground ,preprocessor)))
@@ -2415,7 +2415,7 @@ FG and BG are the main colors."
     `(font-lock-regexp-grouping-construct ((,c :inherit modus-themes-bold :foreground ,rx-construct)))
     `(font-lock-string-face ((,c :foreground ,string)))
     `(font-lock-type-face ((,c :inherit modus-themes-bold :foreground ,type)))
-    `(font-lock-variable-name-face ((,c :foreground ,variable)))
+    `(font-lock-variable-name-face ((,c :inherit italic :foreground ,variable)))
     `(font-lock-warning-face ((,c :inherit modus-themes-bold :foreground ,warning)))
 ;;;;; geiser
     `(geiser-font-lock-autodoc-current-arg ((,c :inherit bold :background ,bg-active-argument :foreground ,fg-active-argument)))
