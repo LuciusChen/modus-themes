@@ -140,12 +140,6 @@ which corresponds to a minimum contrast in relative luminance of
       (bg-magenta-nuanced "#260733")
       (bg-cyan-nuanced    "#02202c")
 
-;;; Uncommon accent backgrounds
-
-      (bg-ochre    "#442c2f")
-      (bg-lavender "#38325c")
-      (bg-sage     "#0f3d30")
-
 ;;; Graphs
 
       (bg-graph-red-0     "#FF5456")
@@ -160,6 +154,12 @@ which corresponds to a minimum contrast in relative luminance of
       (bg-graph-magenta-1 "#5f509f")
       (bg-graph-cyan-0    "#47dfea")
       (bg-graph-cyan-1    "#00808f")
+
+;;; Uncommon accent backgrounds
+
+      (bg-ochre    bg-graph-green-1)
+      (bg-lavender "#38325c")
+      (bg-sage     "#0f3d30")
 
 ;;; Special purpose
 

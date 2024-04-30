@@ -154,6 +154,12 @@ which corresponds to a minimum contrast in relative luminance of
       (bg-graph-cyan-0    "#70d3f0")
       (bg-graph-cyan-1    "#afefff")
 
+;;; Uncommon accent backgrounds
+
+      (bg-ochre    bg-graph-magenta-0)
+      (bg-lavender "#38325c")
+      (bg-sage     "#0f3d30")
+
 ;;; Special purpose
 
       (bg-completion      "#ccedff")
@@ -206,12 +212,6 @@ which corresponds to a minimum contrast in relative luminance of
       (fg-removed-intense "#ff9095")
 
       (bg-diff-context    "#e9f0f0")
-
-;;; Uncommon accent backgrounds
-
-      (bg-ochre    "#442c2f")
-      (bg-lavender "#38325c")
-      (bg-sage     "#0f3d30")
 
 ;;; Paren match
 
