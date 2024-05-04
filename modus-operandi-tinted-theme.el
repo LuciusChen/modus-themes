@@ -57,15 +57,15 @@ which corresponds to a minimum contrast in relative luminance of
     '(
 ;;; Basic values
 
-      (bg-main          "#f6fff9")
-      (bg-dim           "#e8f0f0")
+      (bg-main          "#F0EEEB")
+      (bg-dim           "#e6e6e6")
       (fg-main          "#34494a")
       (fg-dim           "#777294")
       (fg-alt           "#9d5e7a")
       (bg-info          "#cfedd1")
       (bg-err           "#f6c9ce")
       (bg-active        "#c0c6c3")
-      (bg-inactive      "#f0f8f4")
+      (bg-inactive      "#dbd9d5")
       (border           "#376751")
 
 ;;; Common accent foregrounds
@@ -76,14 +76,14 @@ which corresponds to a minimum contrast in relative luminance of
       (red-faint         "#dc2626")
       (red-intense       "#b91c1c")
       (green             "#22c55e")
-      (green-warmer      "#2c7c79") ;;#90e307
+      (green-warmer      "#2c7c79")
       (green-cooler      "#84cc16")
       (green-faint       "#16a34a")
       (green-intense     "#15803d")
       (yellow            "#eab308")
       (yellow-warmer     "#f59e0b")
       (yellow-cooler     "#fbbf24")
-      (yellow-faint      "#ee7744") ;;#ca8a04
+      (yellow-faint      "#ee7744")
       (yellow-intense    "#a16207")
       (blue              "#3b82f6")
       (blue-warmer       "#818cf8")
@@ -162,10 +162,10 @@ which corresponds to a minimum contrast in relative luminance of
 
 ;;; Special purpose
 
-      (bg-completion      "#ccedff")
+      (bg-completion      "#CCD5DA")
       (bg-hover             bg-main)
       (bg-hover-secondary "#f0bfff")
-      (bg-hl-line         "#f9e0e5")
+      (bg-hl-line         bg-completion)
       (bg-region          "#d0e6ff")
       (fg-region            fg-main)
       (fg-comment         "#808F7C")
@@ -176,7 +176,7 @@ which corresponds to a minimum contrast in relative luminance of
 
       (bg-mode-line-active        bg-main)
       (fg-mode-line-active        fg-main)
-      (border-mode-line-active    "#e7e7e7")
+      (border-mode-line-active    bg-completion)
       (bg-mode-line-inactive      "#e1e6e3")
       (fg-mode-line-inactive      "#969696")
       (border-mode-line-inactive  "#c0c6c3")

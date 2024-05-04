@@ -75,10 +75,10 @@ deficiency (deuteranopia or tritanopia, respectively)."
 ;; options.
 
 (dolist (color '( red green blue yellow magenta cyan
-                 red-warmer green-warmer blue-warmer yellow-warmer magenta-warmer cyan-warmer
-                 red-cooler green-cooler blue-cooler yellow-cooler magenta-cooler cyan-cooler
-                 red-faint green-faint blue-faint yellow-faint magenta-faint cyan-faint
-                 red-intense green-intense blue-intense yellow-intense magenta-intense cyan-intense))
+                  red-warmer green-warmer blue-warmer yellow-warmer magenta-warmer cyan-warmer
+                  red-cooler green-cooler blue-cooler yellow-cooler magenta-cooler cyan-cooler
+                  red-faint green-faint blue-faint yellow-faint magenta-faint cyan-faint
+                  red-intense green-intense blue-intense yellow-intense magenta-intense cyan-intense))
   (custom-declare-face
    (intern (format "modus-themes-fg-%s" color))
    nil (format "Face with %s foreground." color)
@@ -291,9 +291,9 @@ set this variable to a nil value."
 
 (defconst modus-themes-items
   '( modus-operandi modus-vivendi
-    modus-operandi-tinted modus-vivendi-tinted
-    modus-operandi-deuteranopia modus-vivendi-deuteranopia
-    modus-operandi-tritanopia modus-vivendi-tritanopia)
+     modus-operandi-tinted modus-vivendi-tinted
+     modus-operandi-deuteranopia modus-vivendi-deuteranopia
+     modus-operandi-tritanopia modus-vivendi-tritanopia)
   "Symbols of the Modus themes.")
 
 (defcustom modus-themes-to-toggle '(modus-operandi modus-vivendi)
@@ -391,18 +391,18 @@ Protesilaos))."
 
 (defconst modus-themes--weight-widget
   '(choice :tag "Font weight (must be supported by the typeface)"
-    (const :tag "Unspecified (use whatever the default is)" nil)
-    (const :tag "Thin" thin)
-    (const :tag "Ultra-light" ultralight)
-    (const :tag "Extra-light" extralight)
-    (const :tag "Light" light)
-    (const :tag "Semi-light" semilight)
-    (const :tag "Regular" regular)
-    (const :tag "Medium" medium)
-    (const :tag "Semi-bold" semibold)
-    (const :tag "Bold" bold)
-    (const :tag "Extra-bold" extrabold)
-    (const :tag "Ultra-bold" ultrabold))
+           (const :tag "Unspecified (use whatever the default is)" nil)
+           (const :tag "Thin" thin)
+           (const :tag "Ultra-light" ultralight)
+           (const :tag "Extra-light" extralight)
+           (const :tag "Light" light)
+           (const :tag "Semi-light" semilight)
+           (const :tag "Regular" regular)
+           (const :tag "Medium" medium)
+           (const :tag "Semi-bold" semibold)
+           (const :tag "Bold" bold)
+           (const :tag "Extra-bold" extrabold)
+           (const :tag "Ultra-bold" ultrabold))
   "List of supported font weights used by `defcustom' forms.")
 
 (defconst modus-themes--headings-widget
@@ -1067,10 +1067,10 @@ C1 and C2 are color values written in hexadecimal RGB."
 With optional OVERRIDES, return THEME palette overrides as a
 symbol."
   (when-let ((suffix (cond
-                       ((and theme overrides)
-                        "palette-overrides")
-                       (theme
-                        "palette"))))
+                      ((and theme overrides)
+                       "palette-overrides")
+                      (theme
+                       "palette"))))
     (intern (format "%s-%s" theme suffix))))
 
 (defun modus-themes--palette-value (theme &optional overrides)
@@ -1126,14 +1126,14 @@ This function is used in the macros `modus-themes-theme',
 `modus-themes-with-colors'."
   (let ((value (car (alist-get color palette))))
     (cond
-      ((or (stringp value)
-           (eq value 'unspecified))
-       value)
-      ((and (symbolp value)
-            (memq value (mapcar #'car palette)))
-       (modus-themes--retrieve-palette-value value palette))
-      (t
-       'unspecified))))
+     ((or (stringp value)
+          (eq value 'unspecified))
+      value)
+     ((and (symbolp value)
+           (memq value (mapcar #'car palette)))
+      (modus-themes--retrieve-palette-value value palette))
+     (t
+      'unspecified))))
 
 (defun modus-themes-get-color-value (color &optional overrides theme)
   "Return color value of named COLOR for current Modus theme.
@@ -1372,14 +1372,14 @@ color that is combined with FG-FOR-BG."
          (weight (modus-themes--weight properties)))
     (list :inherit
           (cond
-            ((and (memq 'bold properties)
-                  (memq 'italic properties))
-             'bold-italic)
-            ((memq 'italic properties)
-             'italic)
-            ((memq 'bold properties)
-             'bold)
-            ('unspecified))
+           ((and (memq 'bold properties)
+                 (memq 'italic properties))
+            'bold-italic)
+           ((memq 'italic properties)
+            'italic)
+           ((memq 'bold properties)
+            'bold)
+           ('unspecified))
           :background bg
           :foreground fg
           :weight
@@ -1392,7 +1392,7 @@ color that is combined with FG-FOR-BG."
 
 (defconst modus-themes-weights
   '( thin ultralight extralight light semilight regular medium
-    semibold bold heavy extrabold ultrabold)
+     semibold bold heavy extrabold ultrabold)
   "List of font weights.")
 
 (defun modus-themes--weight (list)
@@ -1415,13 +1415,13 @@ Optional OL is the color of an overline."
          (var (when (and style-listp (memq 'variable-pitch properties)) 'variable-pitch))
          (weight (when style-listp (modus-themes--weight style))))
     (list :inherit (cond
-                     ((not style-listp) 'bold)
-                     ;; `no-bold' is for backward compatibility because we cannot
-                     ;; deprecate a variable's value.
-                     ((or weight (memq 'no-bold properties))
-                      var)
-                     (var (append (list 'bold) (list var)))
-                     (t 'bold))
+                    ((not style-listp) 'bold)
+                    ;; `no-bold' is for backward compatibility because we cannot
+                    ;; deprecate a variable's value.
+                    ((or weight (memq 'no-bold properties))
+                     var)
+                    (var (append (list 'bold) (list var)))
+                    (t 'bold))
           :background (or bg 'unspecified)
           :foreground fg
           :overline (or ol 'unspecified)
@@ -1440,12 +1440,12 @@ Optional OL is the color of an overline."
     (list
      :inherit
      (cond
-       ((and italic weight (not (eq weight 'bold)))
-        'italic)
-       ((and weight (not (eq weight 'bold)))
-        'unspecified)
-       (italic 'bold-italic)
-       ('bold))
+      ((and italic weight (not (eq weight 'bold)))
+       'italic)
+      ((and weight (not (eq weight 'bold)))
+       'unspecified)
+      (italic 'bold-italic)
+      ('bold))
      :background bg
      :foreground 'unspecified
      :underline
@@ -1464,12 +1464,12 @@ FG and BG are the main colors."
     (list
      :inherit
      (cond
-       ((and italic weight (not (eq weight 'bold)))
-        'italic)
-       ((and weight (not (eq weight 'bold)))
-        'unspecified)
-       (italic 'bold-italic)
-       ('bold))
+      ((and italic weight (not (eq weight 'bold)))
+       'italic)
+      ((and weight (not (eq weight 'bold)))
+       'unspecified)
+      (italic 'bold-italic)
+      ('bold))
      :background bg
      :foreground fg
      :underline
@@ -3664,7 +3664,7 @@ FG and BG are the main colors."
 ;;;;; table (built-in table.el)
     `(table-cell ((,c :background ,bg-dim)))
 ;;;;; telega
-    `(telega-entity-type-code ((,c :background ,bg-inactive :extend t)))
+    `(telega-entity-type-code ((,c :background ,bg-dim :extend t)))
     `(telega-box-button ((,c :box (:line-width (-1 . -1)) :foreground ,fg-link)))
     `(telega-box-button-active ((,c :box ,fg-link :background ,fg-link :foreground ,bg-main)))
     `(telega-button-highlight ((,c :inherit secondary-selection)))
@@ -3678,7 +3678,7 @@ FG and BG are the main colors."
     `(telega-msg-self-title ((,c :inherit bold :foreground ,gold)))
     `(telega-msg-inline-reply ((,c :background ,bg-main :foreground ,olive)))
     `(telega-msg-inline-forward ((,c :background ,bg-main :foreground ,gold)))
-    `(telega-root-heading ((,c :inherit bold :foreground ,indigo :background ,bg-inactive)))
+    `(telega-root-heading ((,c :inherit bold :foreground ,indigo :background ,bg-dim)))
     `(telega-secret-title ((,c :foreground ,magenta-warmer)))
     `(telega-unmuted-count ((,c :foreground ,gold)))
     `(telega-mention-count ((,c :inherit bold :foreground ,red-faint)))
@@ -4019,7 +4019,7 @@ FG and BG are the main colors."
 ;;;; chart
     `(chart-face-color-list
       '( ,bg-graph-red-0 ,bg-graph-green-0 ,bg-graph-yellow-0 ,bg-graph-blue-0 ,bg-graph-magenta-0 ,bg-graph-cyan-0
-        ,bg-graph-red-1 ,bg-graph-green-1 ,bg-graph-yellow-1 ,bg-graph-blue-1 ,bg-graph-magenta-1 ,bg-graph-cyan-1))
+         ,bg-graph-red-1 ,bg-graph-green-1 ,bg-graph-yellow-1 ,bg-graph-blue-1 ,bg-graph-magenta-1 ,bg-graph-cyan-1))
 ;;;; exwm
     `(exwm-floating-border-color ,border)
 ;;;; flymake fringe indicators
