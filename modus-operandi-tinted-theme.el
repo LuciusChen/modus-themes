@@ -166,7 +166,7 @@ which corresponds to a minimum contrast in relative luminance of
       (bg-hover             bg-main)
       (bg-hover-secondary "#f0bfff")
       (bg-hl-line         bg-completion)
-      (bg-region          "#d0e6ff")
+      (bg-region          bg-completion)
       (fg-region            fg-main)
       (fg-comment         "#808F7C")
 
@@ -366,7 +366,7 @@ which corresponds to a minimum contrast in relative luminance of
       (bg-prose-verbatim unspecified)
       (fg-prose-verbatim magenta-warmer)
 
-      (prose-done green)
+      (prose-done green-faint)
       (prose-todo red)
 
       (prose-metadata fg-dim)
