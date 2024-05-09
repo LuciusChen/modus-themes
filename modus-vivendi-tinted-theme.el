@@ -59,14 +59,14 @@ which corresponds to a minimum contrast in relative luminance of
 ;;; Basic values
 
       (bg-main          "#101010")
-      (bg-dim           "#18181b")
+      (bg-dim           "#27272a")
       (fg-main          "#eeeeee")
       (fg-dim           "#989898")
       (fg-alt           "#c6daff")
       (bg-info          "#417851")
       (bg-err           "#d44242")
       (bg-active        "#1d282a")
-      (bg-inactive      "#27272a")
+      (bg-inactive         bg-dim)
       (border           "#376751")
 
 ;;; Common accent foregrounds
@@ -355,9 +355,9 @@ which corresponds to a minimum contrast in relative luminance of
 
 ;;;; Prose mappings
 
-      (bg-prose-block-delimiter bg-dim)
+      (bg-prose-block-delimiter bg-inactive)
       (fg-prose-block-delimiter fg-dim)
-      (bg-prose-block-contents bg-dim)
+      (bg-prose-block-contents bg-inactive)
 
       (bg-prose-code unspecified)
       (fg-prose-code cyan-cooler)
