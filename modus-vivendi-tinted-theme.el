@@ -166,8 +166,8 @@ which corresponds to a minimum contrast in relative luminance of
       (bg-lavender "#38325c")
       (fg-lavender "#dfc0f0")
 
-      (bg-sage     "#143e32")
-      (fg-sage     "#c3e7d4")
+      (bg-sage     "#2f4144")
+      (fg-sage     "#97FF97")
 
 ;;; Special purpose
 

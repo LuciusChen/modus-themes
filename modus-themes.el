@@ -2695,7 +2695,7 @@ FG and BG are the main colors."
     `(isearch-group-1 ((,c :inherit modus-themes-search-rx-group-0)))
     `(isearch-group-2 ((,c :inherit modus-themes-search-rx-group-1)))
     `(lazy-highlight ((,c :inherit modus-themes-search-lazy)))
-    `(match ((,c :inherit bold :background ,bg-completion :foreground ,bg-ochre)))
+    `(match ((,c :inherit bold :background ,bg-sage :foreground ,fg-sage)))
     `(query-replace ((,c :inherit modus-themes-search-replace)))
 ;;;;; ivy
     `(ivy-action ((,c :inherit modus-themes-key-binding)))
