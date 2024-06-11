@@ -155,11 +155,19 @@ which corresponds to a minimum contrast in relative luminance of
       (bg-graph-cyan-0    "#47dfea")
       (bg-graph-cyan-1    "#00808f")
 
-;;; Uncommon accent backgrounds
+;;; Uncommon accent background and foreground pairs
 
-      (bg-ochre    bg-graph-green-1)
+      (bg-clay     "#49191a")
+      (fg-clay     "#f1b090")
+
+      (bg-ochre    "#462f20")
+      (fg-ochre    "#e0d09c")
+
       (bg-lavender "#38325c")
-      (bg-sage     "#0f3d30")
+      (fg-lavender "#dfc0f0")
+
+      (bg-sage     "#143e32")
+      (fg-sage     "#c3e7d4")
 
 ;;; Special purpose
 
