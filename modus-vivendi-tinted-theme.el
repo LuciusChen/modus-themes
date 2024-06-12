@@ -268,13 +268,13 @@ which corresponds to a minimum contrast in relative luminance of
       (constant     "#7DC8E0")
       (docstring    "#7DC8E0")
       (docmarkup    "#A0C980")
-      (fnname       "#F28B82")
+      (fnname       "#E57373") ;; #F28B82
       (keyword      "#8AB4F8")
       (preprocessor "#B35F5F")
       (string       "#A58BBF")
-      (type         "#E1E8B5")
-      (variable     "#75E2A6")
-      (rx-construct "#75E2A6")
+      (type         "#D4D7A0") ;; #E1E8B5
+      (variable     "#6FC099") ;; #75E2A6
+      (rx-construct "#6FC099")
       (rx-backslash "#B57F96")
 
 ;;;; Accent mappings
