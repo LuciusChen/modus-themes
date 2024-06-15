@@ -269,7 +269,7 @@ which corresponds to a minimum contrast in relative luminance of
       (docstring    "#0e7490")
       (docmarkup    "#A0C980")
       (fnname       "#74ade9")
-      (keyword      "#cf7fa7")
+      (keyword      "#f472b6")
       (preprocessor "#B35F5F")
       (string       "#A58BBF")
       (type         "#dfc184")
