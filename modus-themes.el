@@ -2812,7 +2812,7 @@ FG and BG are the main colors."
     `(magit-blame-date (( )))
     `(magit-blame-dimmed ((,c :inherit shadow)))
     `(magit-blame-hash (( )))
-    `(magit-blame-highlight ((,c :background ,bg-active :foreground ,fg-main)))
+    `(magit-blame-highlight ((,c :background ,bg-sage :foreground ,fg-sage)))
     `(magit-blame-name (( )))
     `(magit-blame-summary ((  )))
     `(magit-branch-local ((,c :foreground ,accent-0)))
