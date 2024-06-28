@@ -2258,6 +2258,7 @@ FG and BG are the main colors."
 ;;;;; embark
     `(embark-keybinding ((,c :inherit modus-themes-key-binding)))
     `(embark-collect-marked ((,c :inherit modus-themes-mark-sel)))
+    `(embark-target ((,c :background ,bg-dim)))
 ;;;;; ement (ement.el)
     `(ement-room-fully-read-marker ((,c :inherit success)))
     `(ement-room-membership ((,c :inherit shadow)))
