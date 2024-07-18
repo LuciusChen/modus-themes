@@ -2401,7 +2401,7 @@ FG and BG are the main colors."
     `(font-lock-bracket-face ((,c :foreground ,bracket)))
     `(font-lock-builtin-face ((,c :inherit modus-themes-bold :foreground ,builtin)))
     `(font-lock-comment-delimiter-face ((,c :inherit font-lock-comment-face)))
-    `(font-lock-comment-face ((,c :inherit (modus-themes-slant italic) :foreground ,comment)))
+    `(font-lock-comment-face ((,c :inherit (modus-themes-slant) :foreground ,comment)))
     `(font-lock-constant-face ((,c :foreground ,constant)))
     `(font-lock-delimiter-face ((,c :foreground ,delimiter)))
     `(font-lock-doc-face ((,c :inherit modus-themes-slant :foreground ,docstring)))
