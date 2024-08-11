@@ -1616,7 +1616,7 @@ FG and BG are the main colors."
     `(comint-highlight-prompt ((,c :inherit modus-themes-prompt)))
     `(confusingly-reordered ((,c :inherit modus-themes-lang-error)))
     `(edmacro-label ((,c :inherit bold :foreground ,accent-0)))
-    `(elisp-shorthand-font-lock-face ((,c :inherit font-lock-variable-name-face)))
+    `(elisp-shorthand-font-lock-face ((,c :inherit (italic font-lock-preprocessor-face))))
     `(error ((,c :inherit bold :foreground ,err)))
     `(escape-glyph ((,c :foreground ,err)))
     `(file-name-shadow ((,c :inherit shadow)))
@@ -3862,6 +3862,9 @@ FG and BG are the main colors."
     `(vimish-fold-mouse-face ((,c :inherit modus-themes-intense-blue)))
     `(vimish-fold-overlay ((,c :background ,bg-inactive)))
 ;;;;; viper
+    `(viper-replace-overlay-cursor-color ,err)
+    `(viper-insert-state-cursor-color ,info)
+    `(viper-emacs-state-cursor-color ,fg-main)
     `(viper-search ((,c :inherit modus-themes-search-current)))
     `(viper-replace-overlay ((,c :inherit modus-themes-search-replace)))
     `(viper-minibuffer-emacs (( )))
