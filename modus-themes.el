@@ -3032,7 +3032,6 @@ FG and BG are the main colors."
     `(mode-line-highlight ((,c :background ,bg-hover :foreground ,fg-main)))
     `(mode-line-inactive ((,c :inherit modus-themes-ui-variable-pitch
                               :box ,border-mode-line-inactive
-                              :background ,bg-mode-line-inactive
                               :foreground ,fg-mode-line-inactive)))
 ;;;;; mood-line
     `(mood-line-modified ((,c :inherit italic)))
