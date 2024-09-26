@@ -58,7 +58,7 @@ which corresponds to a minimum contrast in relative luminance of
     '(
 ;;; Basic values
 
-      (bg-main          "#101010")
+      (bg-main          "#1e1f22")
       (bg-dim           "#26282e")
       (fg-main          "#eeeeee")
       (fg-dim           "#989898")
@@ -183,7 +183,7 @@ which corresponds to a minimum contrast in relative luminance of
       (bg-char-1 "#7f1f7f")
       (bg-char-2 "#625a00")
 
-      (bg-mode-line-active        "#131B1C")
+      (bg-mode-line-active        bg-main)
       (fg-mode-line-active        fg-main)
       (border-mode-line-active    "#979797")
       (bg-mode-line-inactive      "#344138")
