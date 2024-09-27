@@ -57,8 +57,8 @@ which corresponds to a minimum contrast in relative luminance of
     '(
 ;;; Basic values
 
-      (bg-main          "#fefbf0")
-      (bg-dim           "#f2efe4")
+      (bg-main          "#ffffff")
+      (bg-dim           "#f1eefa")
       (fg-main          "#34494a")
       (fg-dim           "#777294")
       (fg-alt           "#9d5e7a")
@@ -170,7 +170,7 @@ which corresponds to a minimum contrast in relative luminance of
 
 ;;; Special purpose
 
-      (bg-completion       "#e9e7d4")
+      (bg-completion       "#eef5f8")
       (bg-hover            bg-main)
       (bg-hover-secondary  "#f0bfff")
       (bg-hl-line          bg-completion)
