@@ -177,7 +177,7 @@ which corresponds to a minimum contrast in relative luminance of
       (bg-hl-line          bg-completion)
       (bg-region           "#557dae")
       (fg-region           fg-main)
-      (fg-comment          "#486f7a")
+      (fg-comment          "#868087")
 
       (bg-char-0 "#0050af")
       (bg-char-1 "#7f1f7f")
