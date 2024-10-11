@@ -266,7 +266,7 @@ which corresponds to a minimum contrast in relative luminance of
       (comment      fg-comment)
       (constant     "#268BD2")
       (delimiter    fg-main)
-      (docstring    "#f97316")
+      (docstring    "#f59e0b")
       (docmarkup    "#D33682")
       (fnname       "#D33682")
       (keyword      "#D33682")
