@@ -174,7 +174,7 @@ which corresponds to a minimum contrast in relative luminance of
       (bg-hover            bg-main)
       (bg-hover-secondary  "#f0bfff")
       (bg-hl-line          bg-completion)
-      (bg-region           "#bfcfe1")
+      (bg-region           "#f0dbb9")
       (fg-region           fg-main)
       (fg-comment          "#808F7C")
 
@@ -308,15 +308,17 @@ which corresponds to a minimum contrast in relative luminance of
 ;;;; Date mappings
 
       (date-common cyan)
-      (date-deadline red)
+      (date-deadline red-cooler)
+      (date-deadline-subtle red-faint)
       (date-event fg-alt)
-      (date-holiday red-cooler)
+      (date-holiday red)
       (date-holiday-other blue)
       (date-now fg-main)
       (date-range fg-alt)
-      (date-scheduled yellow-warmer)
+      (date-scheduled yellow)
+      (date-scheduled-subtle yellow-faint)
       (date-weekday cyan)
-      (date-weekend red-faint)
+      (date-weekend magenta)
 
 ;;;; Line number mappings
 

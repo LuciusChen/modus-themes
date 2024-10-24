@@ -290,10 +290,7 @@ set this variable to a nil value."
   "Alias of `modus-themes-items'.")
 
 (defconst modus-themes-items
-  '( modus-operandi modus-vivendi
-     modus-operandi-tinted modus-vivendi-tinted
-     modus-operandi-deuteranopia modus-vivendi-deuteranopia
-     modus-operandi-tritanopia modus-vivendi-tritanopia)
+  '( modus-operandi-tinted modus-vivendi-tinted)
   "Symbols of the Modus themes.")
 
 (defcustom modus-themes-to-toggle '(modus-operandi modus-vivendi)
@@ -321,8 +318,6 @@ the same as using the command `modus-themes-select'."
                                   modus-themes-items))))
   :package-version '(modus-themes . "4.0.0")
   :version "30.1"
-  :set #'modus-themes--set-option
-  :initialize #'custom-initialize-default
   :group 'modus-themes)
 
 (defvaralias 'modus-themes-post-load-hook 'modus-themes-after-load-theme-hook)
@@ -333,8 +328,6 @@ This is used by the command `modus-themes-toggle'."
   :type 'hook
   :package-version '(modus-themes . "4.0.0")
   :version "30.1"
-  :set #'modus-themes--set-option
-  :initialize #'custom-initialize-default
   :group 'modus-themes)
 
 (defvaralias 'modus-themes-slanted-constructs 'modus-themes-italic-constructs)
