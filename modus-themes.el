@@ -2403,7 +2403,7 @@ FG and BG are the main colors."
     `(font-lock-bracket-face ((,c :foreground ,bracket)))
     `(font-lock-builtin-face ((,c :inherit modus-themes-bold :foreground ,builtin)))
     `(font-lock-comment-delimiter-face ((,c :inherit font-lock-comment-face)))
-    `(font-lock-comment-face ((,c :inherit (modus-themes-slant) :foreground ,comment)))
+    `(font-lock-comment-face ((,c :inherit (modus-themes-slant italic) :foreground ,comment)))
     `(font-lock-constant-face ((,c :foreground ,constant)))
     `(font-lock-delimiter-face ((,c :foreground ,delimiter)))
     `(font-lock-doc-face ((,c :inherit modus-themes-slant :foreground ,docstring)))
@@ -3033,7 +3033,7 @@ FG and BG are the main colors."
     `(minimap-current-line-face ((,c :background ,bg-cyan-intense :foreground ,fg-main)))
 ;;;;; mode-line
     `(mode-line ((,c :inherit modus-themes-ui-variable-pitch
-                     :box (:line-width 1 :color ,fg-main)
+                     :box (:line-width 1 :color ,fg-sage)
                      :background ,bg-mode-line-active
                      :foreground ,fg-mode-line-active)))
     `(mode-line-active ((,c :inherit mode-line)))
