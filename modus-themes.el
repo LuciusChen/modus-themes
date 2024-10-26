@@ -308,14 +308,8 @@ the same as using the command `modus-themes-select'."
   :type `(choice
           (const :tag "No toggle" nil)
           (list :tag "Pick two themes to toggle between"
-                (choice :tag "Theme one of two"
-                        ,@(mapcar (lambda (theme)
-                                    (list 'const theme))
-                                  modus-themes-items))
-                (choice :tag "Theme two of two"
-                        ,@(mapcar (lambda (theme)
-                                    (list 'const theme))
-                                  modus-themes-items))))
+                (choice :tag "Theme one of two" ,@(mapcar (lambda (theme) (list 'const theme)) modus-themes-items))
+                (choice :tag "Theme two of two" ,@(mapcar (lambda (theme) (list 'const theme)) modus-themes-items))))
   :package-version '(modus-themes . "4.0.0")
   :version "30.1"
   :group 'modus-themes)
@@ -1079,7 +1073,7 @@ symbol."
   "Return palette value of active Modus theme, else produce `user-error'.
 With optional OVERRIDES return palette value plus whatever
 overrides."
-  (if-let ((theme (modus-themes--current-theme)))
+  (if-let* ((theme (modus-themes--current-theme)))
       (if overrides
           (modus-themes--palette-value theme :overrides)
         (modus-themes--palette-value theme))
@@ -1160,8 +1154,8 @@ symbol, which is safe when used as a face attribute's value."
 
 (defun modus-themes--annotate-theme (theme)
   "Return completion annotation for THEME."
-  (when-let ((symbol (intern-soft theme))
-             (doc-string (get symbol 'theme-documentation)))
+  (when-let* ((symbol (intern-soft theme))
+              (doc-string (get symbol 'theme-documentation)))
     (format " -- %s"
             (propertize (car (split-string doc-string "\\."))
                         'face 'completions-annotations))))
@@ -1192,6 +1186,7 @@ symbol, which is safe when used as a face attribute's value."
   "Load a Modus THEME using minibuffer completion.
 Run `modus-themes-after-load-theme-hook' after loading the theme.
 Disable other themes per `modus-themes-disable-other-themes'."
+  (declare (interactive-only t))
   (interactive (list (modus-themes--select-prompt)))
   (modus-themes-load-theme theme))
 
@@ -2399,7 +2394,7 @@ FG and BG are the main colors."
     `(font-lock-comment-face ((,c :inherit (modus-themes-slant italic) :foreground ,comment)))
     `(font-lock-constant-face ((,c :foreground ,constant)))
     `(font-lock-delimiter-face ((,c :foreground ,delimiter)))
-    `(font-lock-doc-face ((,c :inherit modus-themes-slant :foreground ,docstring)))
+    `(font-lock-doc-face ((,c :inherit (modus-themes-slant italic) :foreground ,docstring)))
     `(font-lock-doc-markup-face ((,c :inherit modus-themes-slant :foreground ,docmarkup)))
     `(font-lock-function-name-face ((,c :inherit italic :foreground ,fnname)))
     `(font-lock-keyword-face ((,c :inherit modus-themes-bold :foreground ,keyword)))
