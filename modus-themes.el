@@ -6,7 +6,7 @@
 ;; Maintainer: Modus-Themes Development <~protesilaos/modus-themes@lists.sr.ht>
 ;; URL: https://git.sr.ht/~protesilaos/modus-themes
 ;; Mailing-List: https://lists.sr.ht/~protesilaos/modus-themes
-;; Version: 4.3.0
+;; Version: 4.6.0
 ;; Package-Requires: ((emacs "27.1"))
 ;; Keywords: faces, theme, accessibility
 
@@ -1053,11 +1053,11 @@ C1 and C2 are color values written in hexadecimal RGB."
   "Return THEME palette as a symbol.
 With optional OVERRIDES, return THEME palette overrides as a
 symbol."
-  (when-let ((suffix (cond
-                      ((and theme overrides)
-                       "palette-overrides")
-                      (theme
-                       "palette"))))
+  (when-let* ((suffix (cond
+                       ((and theme overrides)
+                        "palette-overrides")
+                       (theme
+                        "palette"))))
     (intern (format "%s-%s" theme suffix))))
 
 (defun modus-themes--palette-value (theme &optional overrides)
@@ -2413,18 +2413,19 @@ FG and BG are the main colors."
     `(forge-dimmed ((,c :inherit shadow)))
     `(forge-issue-completed ((,c :inherit shadow)))
     `(forge-issue-open (( )))
-    `(forge-issue-unplanned ((,c :inherit shadow :strike-through t)))
+    `(forge-issue-unplanned ((,c :inherit forge-dimmed :strike-through t)))
     `(forge-post-author ((,c :inherit bold :foreground ,name)))
     `(forge-post-date ((,c :inherit bold :foreground ,date-common)))
     `(forge-pullreq-merged ((,c :foreground ,fg-alt)))
     `(forge-pullreq-open ((,c :foreground ,info)))
     `(forge-pullreq-rejected ((,c :foreground ,err :strike-through t)))
-    `(forge-topic-done ((,c :foreground ,info)))
-    `(forge-topic-pending ((,c :foreground ,warning)))
-    `(forge-topic-slug-completed ((,c :inherit shadow)))
-    `(forge-topic-slug-open ((,c :inherit shadow)))
+    `(forge-topic-done (( )))
+    `(forge-topic-pending ((,c :inherit italic)))
+    `(forge-topic-slug-completed ((,c :inherit forge-dimmed)))
+    `(forge-topic-slug-open ((,c :inherit forge-dimmed)))
     `(forge-topic-slug-saved ((,c :inherit success)))
-    `(forge-topic-slug-unplanned ((,c :inherit shadow :strike-through t)))
+    `(forge-topic-slug-saved ((,c :inherit success)))
+    `(forge-topic-slug-unplanned ((,c :inherit forge-dimmed :strike-through t)))
     `(forge-topic-unread ((,c :inherit bold)))
 ;;;;; geiser
     `(geiser-font-lock-autodoc-current-arg ((,c :inherit bold :background ,bg-active-argument :foreground ,fg-active-argument)))
@@ -3751,6 +3752,13 @@ FG and BG are the main colors."
     `(term-underline ((,c :underline t)))
 ;;;;; textsec
     `(textsec-suspicious (( )))
+;;;;; tldr
+    `(tldr-code-block (( )))
+    `(tldr-command-argument ((,c :inherit font-lock-string-face)))
+    `(tldr-command-itself ((,c :inherit font-lock-builtin-face)))
+    `(tldr-description ((,c :inherit font-lock-doc-face)))
+    `(tldr-introduction ((,c :inherit font-lock-comment-face)))
+    `(tldr-title ((,c :inherit bold)))
 ;;;;; transient
     `(transient-active-infix ((,c :inherit highlight)))
     `(transient-amaranth ((,c :inherit bold :foreground ,yellow-warmer)))
