@@ -3022,7 +3022,7 @@ FG and BG are the main colors."
     `(minimap-current-line-face ((,c :background ,bg-cyan-intense :foreground ,fg-main)))
 ;;;;; mode-line
     `(mode-line ((,c :inherit modus-themes-ui-variable-pitch
-                     :box (:line-width 1 :color ,fg-sage)
+                     :box (:line-width 1 :color ,fg-main)
                      :background ,bg-mode-line-active
                      :foreground ,fg-mode-line-active)))
     `(mode-line-active ((,c :inherit mode-line)))
