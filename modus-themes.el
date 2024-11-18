@@ -3706,6 +3706,7 @@ FG and BG are the main colors."
 ;;;;; table (built-in table.el)
     `(table-cell ((,c :background ,bg-dim)))
 ;;;;; telega
+    `(telega-button-highlight ((,c :inherit secondary-selection)))
     `(telega-msg-heading ((,c :background ,bg-main)))
     `(telega-msg-self-title ((,c :inherit bold :foreground ,gold)))
     `(telega-root-heading ((,c :inherit bold :foreground ,indigo :background ,bg-dim)))
