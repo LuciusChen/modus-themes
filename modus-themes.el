@@ -1171,15 +1171,15 @@ symbol, which is safe when used as a face attribute's value."
   "Render `modus-themes--list-known-themes' as completion with theme category."
   (modus-themes--completion-table 'theme (modus-themes--list-known-themes)))
 
-(defun modus-themes--select-prompt ()
-  "Minibuffer prompt to select a Modus theme."
+(defun modus-themes--select-prompt (&optional prompt)
+  "Minibuffer prompt to select a Modus theme.
+With optional PROMPT string, use it.  Else use a generic prompt."
   (let ((completion-extra-properties `(:annotation-function ,#'modus-themes--annotate-theme)))
     (intern
      (completing-read
-      "Select Modus theme: "
+      (or prompt "Select Modus theme: ")
       (modus-themes--completion-table-candidates)
-      nil t nil
-      'modus-themes--select-theme-history))))
+      nil t nil 'modus-themes--select-theme-history))))
 
 ;;;###autoload
 (defun modus-themes-select (theme)
@@ -1258,7 +1258,13 @@ PALETTE is the value of a variable like `modus-operandi-palette'."
   "Preview the palette of the Modus THEME of choice.
 With optional prefix argument for MAPPINGS preview only the semantic
 color mappings instead of the complete palette."
-  (interactive (list (modus-themes--select-prompt) current-prefix-arg))
+  (interactive
+   (let ((prompt (if current-prefix-arg
+                     "Preview palette mappings of THEME: "
+                   "Preview palette of THEME: ")))
+     (list
+      (modus-themes--select-prompt prompt)
+      current-prefix-arg)))
   (let ((buffer (get-buffer-create (format (if mappings "*%s-list-mappings*" "*%s-list-all*") theme))))
     (with-current-buffer buffer
       (let ((modus-themes-current-preview theme)
