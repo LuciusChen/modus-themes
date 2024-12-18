@@ -314,7 +314,8 @@ the same as using the command `modus-themes-select'."
   :version "30.1"
   :group 'modus-themes)
 
-(defvaralias 'modus-themes-post-load-hook 'modus-themes-after-load-theme-hook)
+(defvaralias 'modus-themes-post-load-hook 'modus-themes-after-load-theme-hook
+  "Alias for `modus-themes-after-load-theme-hook'.")
 
 (defcustom modus-themes-after-load-theme-hook nil
   "Hook that runs after loading a Modus theme.
@@ -1192,13 +1193,13 @@ Disable other themes per `modus-themes-disable-other-themes'."
 
 (defun modus-themes--toggle-theme-p ()
   "Return non-nil if `modus-themes-to-toggle' are valid."
-  (mapc
-   (lambda (theme)
-     (if (or (memq theme modus-themes-items)
-             (memq theme (modus-themes--list-known-themes)))
-         theme
-       (user-error "`%s' is not part of `modus-themes-items'" theme)))
-   modus-themes-to-toggle))
+  (condition-case nil
+      (dolist (theme modus-themes-to-toggle)
+        (or (memq theme modus-themes-items)
+            (memq theme (modus-themes--list-known-themes))
+            (error "`%s' is not part of `modus-themes-items'" theme)))
+    (error nil)
+    (:success modus-themes-to-toggle)))
 
 ;;;###autoload
 (defun modus-themes-toggle ()
