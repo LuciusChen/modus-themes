@@ -1769,6 +1769,7 @@ FG and BG are the main colors."
     `(TeX-error-description-warning ((,c :inherit warning)))
 ;;;;; auto-dim-other-buffers
     `(auto-dim-other-buffers-face ((,c :background ,bg-inactive)))
+    `(auto-dim-other-buffers-hide-face ((,c :foreground ,bg-inactive :background ,bg-inactive)))
 ;;;;; avy
     `(avy-background-face ((,c :background ,bg-dim :foreground ,fg-dim :extend t)))
     `(avy-goto-char-timer-face ((,c :inherit bold :background ,bg-active)))
@@ -2621,8 +2622,8 @@ FG and BG are the main colors."
     `(ido-incomplete-regexp ((,c :inherit error)))
     `(ido-indicator ((,c :inherit bold)))
     `(ido-only-match ((,c :inherit ido-first-match)))
-    `(ido-subdir ((,c :foreground ,accent-0)))
-    `(ido-virtual ((,c :foreground ,accent-1)))
+    `(ido-subdir ((,c :foreground ,keyword)))
+    `(ido-virtual ((,c :foreground ,warning)))
 ;;;;; iedit
     `(iedit-occurrence ((,c :inherit modus-themes-search-lazy)))
     `(iedit-read-only-occurrence ((,c :inherit modus-themes-search-current)))
@@ -2723,8 +2724,8 @@ FG and BG are the main colors."
     `(ivy-minibuffer-match-face-4 ((,c :inherit modus-themes-completion-match-2)))
     `(ivy-remote ((,c :inherit italic)))
     `(ivy-separator ((,c :inherit shadow)))
-    `(ivy-subdir ((,c :foreground ,accent-0)))
-    `(ivy-virtual ((,c :foreground ,accent-1)))
+    `(ivy-subdir ((,c :foreground ,keyword)))
+    `(ivy-virtual ((,c :foreground ,warning)))
 ;;;;; ivy-posframe
     `(ivy-posframe-border ((,c :background ,border)))
     `(ivy-posframe-cursor ((,c :background ,fg-main :foreground ,bg-main)))
