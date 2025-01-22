@@ -1238,7 +1238,8 @@ PALETTE is the value of a variable like `modus-operandi-palette'."
                            (color (modus-themes-get-color-value name mappings theme))) ; resolve a semantic mapping
                 (list name
                       (vector
-                       (if (symbolp value)
+                       (if (and (symbolp value)
+                                (not (eq value 'unspecified)))
                            "Yes"
                          "")
                        name-string
@@ -3246,7 +3247,7 @@ FG and BG are the main colors."
     `(org-clock-overlay ((,c :inherit secondary-selection)))
     `(org-code ((,c :inherit modus-themes-prose-code)))
     `(org-column ((,c :inherit default :background ,bg-dim)))
-    `(org-column-title ((,c :inherit (bold default) :underline t :background ,bg-dim)))
+    `(org-column-title ((,c :inherit (modus-themes-fixed-pitch bold default) :underline t :background ,bg-dim)))
     `(org-date ((,c :inherit modus-themes-fixed-pitch :foreground ,date-common)))
     `(org-date-selected ((,c :foreground ,date-common :inverse-video t)))
     ;; NOTE 2024-03-17: Normally we do not want to add this padding
@@ -3638,6 +3639,9 @@ FG and BG are the main colors."
     `(smerge-refined-changed (()))
     `(smerge-refined-removed ((,c :inherit diff-refine-removed)))
     `(smerge-upper ((,c :inherit diff-removed)))
+;;;;; spacious-padding
+    `(spacious-padding-subtle-mode-line-active ((,c :foreground ,keybind)))
+    `(spacious-padding-subtle-mode-line-inactive ((,c :foreground ,border)))
 ;;;;; speedbar
     `(speedbar-button-face ((,c :inherit button)))
     `(speedbar-directory-face ((,c :inherit bold :foreground ,accent-0)))
@@ -3916,20 +3920,25 @@ FG and BG are the main colors."
     `(vr/match-1 ((,c :inherit modus-themes-search-lazy)))
     `(vr/match-separator-face ((,c :inherit bold :background ,bg-active)))
 ;;;;; vterm
-    ;; NOTE 2023-08-10: `vterm-color-black' and `vterm-color-white'
-    ;; use the "bright" semantic color mappings to make sure they are
-    ;; distinct from `vterm-color-default'.
     `(vterm-color-black ((,c :background ,bg-term-black-bright :foreground ,fg-term-black-bright)))
-    `(vterm-color-blue ((,c :background ,bg-term-blue :foreground ,fg-term-blue)))
-    `(vterm-color-cyan ((,c :background ,bg-term-cyan :foreground ,fg-term-cyan)))
-    `(vterm-color-default ((,c :background ,bg-main :foreground ,fg-main)))
-    `(vterm-color-green ((,c :background ,bg-term-green :foreground ,fg-term-green)))
-    `(vterm-color-inverse-video ((,c :background ,bg-main :inverse-video t)))
-    `(vterm-color-magenta ((,c :background ,bg-term-magenta :foreground ,fg-term-magenta)))
+    `(vterm-color-bright-black ((,c :background ,bg-term-black-bright :foreground ,fg-term-black-bright)))
     `(vterm-color-red ((,c :background ,bg-term-red :foreground ,fg-term-red)))
-    `(vterm-color-underline ((,c :underline t)))
-    `(vterm-color-white ((,c :background ,bg-term-white :foreground ,fg-term-white)))
+    `(vterm-color-bright-red ((,c :background ,bg-term-red-bright :foreground ,fg-term-red-bright)))
+    `(vterm-color-green ((,c :background ,bg-term-green :foreground ,fg-term-green)))
+    `(vterm-color-bright-green ((,c :background ,bg-term-green-bright :foreground ,fg-term-green-bright)))
     `(vterm-color-yellow ((,c :background ,bg-term-yellow :foreground ,fg-term-yellow)))
+    `(vterm-color-bright-yellow ((,c :background ,bg-term-yellow-bright :foreground ,fg-term-yellow-bright)))
+    `(vterm-color-blue ((,c :background ,bg-term-blue :foreground ,fg-term-blue)))
+    `(vterm-color-bright-blue ((,c :background ,bg-term-blue-bright :foreground ,fg-term-blue-bright)))
+    `(vterm-color-magenta ((,c :background ,bg-term-magenta :foreground ,fg-term-magenta)))
+    `(vterm-color-bright-magenta ((,c :background ,bg-term-magenta-bright :foreground ,fg-term-magenta-bright)))
+    `(vterm-color-cyan ((,c :background ,bg-term-cyan :foreground ,fg-term-cyan)))
+    `(vterm-color-cyan ((,c :background ,bg-term-cyan :foreground ,fg-term-cyan)))
+    `(vterm-color-bright-cyan ((,c :background ,bg-term-cyan-bright :foreground ,fg-term-cyan-bright)))
+    `(vterm-color-white ((,c :background ,bg-term-white :foreground ,fg-term-white)))
+    `(vterm-color-bright-white ((,c :background ,bg-term-white-bright :foreground ,fg-term-white-bright)))
+    `(vterm-color-inverse-video ((,c :background ,bg-main :inverse-video t)))
+    `(vterm-color-underline ((,c :underline t)))
 ;;;;; vundo
     `(vundo-default ((,c :inherit shadow)))
     `(vundo-highlight ((,c :inherit (bold vundo-node) :foreground ,red)))
