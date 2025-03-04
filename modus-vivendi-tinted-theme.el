@@ -64,7 +64,7 @@ which corresponds to a minimum contrast in relative luminance of
       (fg-dim           "#989898")
       (fg-alt           "#c6daff")
       (bg-info          "#417851")
-      (bg-err           "#d44242")
+      (bg-err           "#A23F5D")
       (bg-active        "#1d282a")
       (bg-inactive         bg-dim)
       (border           "#376751")
@@ -467,15 +467,15 @@ which corresponds to a minimum contrast in relative luminance of
 
 ;;;; Heading mappings
 
-      (fg-heading-0 purple-cooler)
-      (fg-heading-1 green-cooler)
-      (fg-heading-2 red-cooler)
-      (fg-heading-3 blue-cooler)
-      (fg-heading-4 yellow-cooler)
-      (fg-heading-5 green-cooler)
-      (fg-heading-6 red-cooler)
-      (fg-heading-7 blue-cooler)
-      (fg-heading-8 yellow-cooler)
+      (fg-heading-0 "#B97DAB")
+      (fg-heading-1 "#2C7C79")
+      (fg-heading-2 "#EE7744")
+      (fg-heading-3 "#F9BC4F")
+      (fg-heading-4 "#FFDE73")
+      (fg-heading-5 "#B97DAB")
+      (fg-heading-6 "#2C7C79")
+      (fg-heading-7 "#EE7744")
+      (fg-heading-8 "#F9BC4F")
 
       (bg-heading-0 unspecified)
       (bg-heading-1 unspecified)
