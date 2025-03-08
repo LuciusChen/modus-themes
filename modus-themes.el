@@ -2073,6 +2073,8 @@ FG and BG are the main colors."
     `(diff-nonexistent ((,c :inherit bold)))
 ;;;;; dim-autoload
     `(dim-autoload-cookie-line ((,c :inherit font-lock-comment-face)))
+;;;;; dirvish
+    `(dirvish-hl-line ((,c :background ,bg-completion)))
 ;;;;; dired
     `(dired-broken-symlink ((,c :inherit button :foreground ,err)))
     `(dired-directory ((,c :foreground ,accent-0)))
