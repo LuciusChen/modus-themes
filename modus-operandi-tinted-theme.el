@@ -174,7 +174,7 @@ which corresponds to a minimum contrast in relative luminance of
       (bg-hover            bg-main)
       (bg-hover-secondary  "#f0bfff")
       (bg-hl-line          bg-completion)
-      (bg-region           "#b3d7fe")
+      (bg-region           "#cecacd")
       (fg-region           fg-main)
       (fg-comment          "#808F7C")
 
@@ -266,7 +266,7 @@ which corresponds to a minimum contrast in relative luminance of
       (comment      fg-comment)
       (constant     "#268BD2")
       (delimiter    fg-main)
-      (docstring    "#f59e0b")
+      (docstring    "#ea9d34")
       (docmarkup    "#D33682")
       (fnname       "#D33682")
       (keyword      "#D33682")
